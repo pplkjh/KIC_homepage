@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "KIC Starter Theme"
+      },
+      {
+        "type": "paragraph",
+        "content": "Minimal settings. Customize sections in the Theme Editor."
+      }
+    ]
+  }
+]

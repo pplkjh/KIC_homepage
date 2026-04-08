@@ -1,0 +1,61 @@
+<footer class="kic-footer">
+  <div class="kic-container">
+    <div class="kic-footer__grid">
+      <div>
+        {%- if section.settings.logo != blank -%}
+          {{ section.settings.logo | image_url: width: 240 | image_tag: alt: shop.name }}
+        {%- else -%}
+          <img src="{{ 'kic_logo.png' | asset_url }}" alt="{{ shop.name }}" style="height:48px;width:auto">
+        {%- endif -%}
+        <p style="margin:12px 0 0">{{ section.settings.mission }}</p>
+      </div>
+
+      <div>
+        <h3>Quick links</h3>
+        {%- if section.settings.menu != blank -%}
+          {%- for link in section.settings.menu.links -%}
+            <div><a href="{{ link.url }}">{{ link.title }}</a></div>
+          {%- endfor -%}
+        {%- else -%}
+          <div><a href="/pages/products">Products</a></div>
+          <div><a href="/pages/industries">Industries</a></div>
+          <div><a href="/pages/about">About</a></div>
+          <div><a href="/pages/contact">Contact</a></div>
+        {%- endif -%}
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        {%- if section.settings.email != blank -%}<div><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></div>{%- endif -%}
+        {%- if section.settings.phone != blank -%}<div><a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a></div>{%- endif -%}
+        {%- if section.settings.address != blank -%}<div>{{ section.settings.address }}</div>{%- endif -%}
+      </div>
+
+      <div>
+        <h3>Business hours</h3>
+        <p style="margin:0">{{ section.settings.business_hours }}</p>
+      </div>
+    </div>
+
+    <div class="kic-footer__bottom">
+      <div>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</div>
+      <div>Established {{ section.settings.established }} · Industrial Strapping Solutions</div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "KIC Footer",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "link_list", "id": "menu", "label": "Menu" },
+    { "type": "text", "id": "mission", "label": "Mission / short description", "default": "World-class strapping solutions for industrial packaging." },
+    { "type": "text", "id": "email", "label": "Email", "default": "export@kic.com" },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "+82-00-0000-0000" },
+    { "type": "text", "id": "address", "label": "Address", "default": "Korea" },
+    { "type": "text", "id": "business_hours", "label": "Business hours", "default": "Mon–Fri 09:00–18:00 (KST)" },
+    { "type": "text", "id": "established", "label": "Established year", "default": "1973" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,95 @@
+<section class="kic-hero">
+  <div class="kic-hero__bg">
+    {%- if section.settings.hero_image != blank -%}
+      {{ section.settings.hero_image | image_url: width: 2000 | image_tag: alt: section.settings.heading }}
+    {%- else -%}
+      <img src="{{ section.settings.hero_image_fallback }}" alt="">
+    {%- endif -%}
+  </div>
+  <div class="kic-hero__overlay"></div>
+
+  <div class="kic-container">
+    <div class="kic-hero__inner">
+      {%- if section.settings.logo != blank -%}
+        <div style="margin-bottom:18px">
+          {{ section.settings.logo | image_url: width: 320 | image_tag: alt: shop.name }}
+        </div>
+      {%- endif -%}
+
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.subheading }}</p>
+
+      <div class="kic-hero__cta">
+        {%- if section.settings.primary_cta_label != blank and section.settings.primary_cta_link != blank -%}
+          <a class="kic-btn kic-btn--primary" href="{{ section.settings.primary_cta_link }}">{{ section.settings.primary_cta_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.secondary_cta_label != blank and section.settings.secondary_cta_link != blank -%}
+          <a class="kic-btn kic-btn--outline" href="{{ section.settings.secondary_cta_link }}">{{ section.settings.secondary_cta_label }}</a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="kic-stats">
+          {%- for block in section.blocks -%}
+            <div class="kic-stat" {{ block.shopify_attributes }}>
+              <div class="kic-stat__v">{{ block.settings.value }}</div>
+              <div class="kic-stat__l">{{ block.settings.label }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<section class="kic-section">
+  <div class="kic-container" style="text-align:center">
+    <h2>{{ section.settings.section2_title }}</h2>
+    <p class="lead">{{ section.settings.section2_lead }}</p>
+    {%- if section.settings.section2_cta_label != blank and section.settings.section2_cta_link != blank -%}
+      <a class="kic-btn kic-btn--primary" href="{{ section.settings.section2_cta_link }}">{{ section.settings.section2_cta_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KIC Home (Hero)",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Hero logo (optional)" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero background image" },
+    { "type": "url", "id": "hero_image_fallback", "label": "Hero image fallback URL (optional)" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "World-Class Strapping Solutions" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "50+ Years of Manufacturing Excellence in PP Band & PE Tying Tape" },
+    { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label", "default": "Request Quote" },
+    { "type": "url", "id": "primary_cta_link", "label": "Primary CTA link" },
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label", "default": "View Products" },
+    { "type": "url", "id": "secondary_cta_link", "label": "Secondary CTA link" },
+    { "type": "text", "id": "section2_title", "label": "Section 2 title", "default": "Build your corporate pages with sections" },
+    { "type": "textarea", "id": "section2_lead", "label": "Section 2 lead", "default": "This starter theme is designed to help you port your existing Vite/React design into Shopify Online Store 2.0 sections." },
+    { "type": "text", "id": "section2_cta_label", "label": "Section 2 CTA label", "default": "Create Pages" },
+    { "type": "url", "id": "section2_cta_link", "label": "Section 2 CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "50+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Years of Excellence" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KIC Home (Hero)",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "50+", "label": "Years of Excellence" } },
+        { "type": "stat", "settings": { "value": "20+", "label": "Countries Served" } },
+        { "type": "stat", "settings": { "value": "500+ tons/mo", "label": "Production Capacity" } },
+        { "type": "stat", "settings": { "value": "#1", "label": "Eggs Market (Example)" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
