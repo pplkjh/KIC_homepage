@@ -1,175 +1,106 @@
-<footer class="kic-footer">
-  <!-- Footer Top: Trust Bar -->
-  <div class="kic-footer__trust">
-    <div class="page-width">
-      <div class="kic-footer__trust-grid">
-        <div class="kic-footer__trust-item">
-          <i class="fas fa-certificate"></i>
-          <div>
-            <strong>ISO 9001:2015</strong>
-            <span>Quality Certified</span>
-          </div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        {%- if section.settings.logo != blank -%}
+          {{ section.settings.logo | image_tag: width: 120, loading: 'lazy', class: 'footer-logo' }}
+        {%- else -%}
+          <span class="footer-logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+        <p class="footer-tagline">{{ section.settings.tagline }}</p>
+        <div class="footer-certs">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'cert' -%}
+              <span class="footer-cert-badge" {{ block.shopify_attributes }}>
+                <span class="dot"></span>{{ block.settings.name }}
+              </span>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
-        <div class="kic-footer__trust-item">
-          <i class="fas fa-history"></i>
-          <div>
-            <strong>Since 1973</strong>
-            <span>50+ Years of Excellence</span>
+        {%- if section.settings.show_social -%}
+          <div class="footer-social">
+            {%- if section.settings.instagram != blank -%}
+              <a href="{{ section.settings.instagram }}" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.facebook != blank -%}
+              <a href="{{ section.settings.facebook }}" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.youtube != blank -%}
+              <a href="{{ section.settings.youtube }}" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.54 6.42A2.78 2.78 0 0020.59 4.4C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" stroke="currentColor" stroke-width="1.8"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              </a>
+            {%- endif -%}
           </div>
-        </div>
-        <div class="kic-footer__trust-item">
-          <i class="fas fa-globe-asia"></i>
-          <div>
-            <strong>20+ Countries</strong>
-            <span>Global Export Network</span>
-          </div>
-        </div>
-        <div class="kic-footer__trust-item">
-          <i class="fas fa-recycle"></i>
-          <div>
-            <strong>RoHS Certified</strong>
-            <span>Eco-Friendly Materials</span>
-          </div>
-        </div>
-        <div class="kic-footer__trust-item">
-          <i class="fas fa-cogs"></i>
-          <div>
-            <strong>OEM / ODM</strong>
-            <span>Custom Manufacturing</span>
-          </div>
-        </div>
+        {%- endif -%}
       </div>
-    </div>
-  </div>
 
-  <!-- Footer Main -->
-  <div class="kic-footer__main">
-    <div class="page-width">
-      <div class="kic-footer__main-grid">
+      <!-- Nav Columns -->
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link_column' -%}
+          <div class="footer-col" {{ block.shopify_attributes }}>
+            <h4 class="footer-col-title">{{ block.settings.title }}</h4>
+            <ul class="footer-links">
+              {%- for link in linklists[block.settings.menu].links -%}
+                <li><a href="{{ link.url }}" class="footer-link">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
 
-        <!-- Company Info -->
-        <div class="kic-footer__col kic-footer__col--brand">
-          {%- if section.settings.footer_logo != blank -%}
-            <a href="{{ routes.root_url }}" class="kic-footer__logo-link">
-              <img src="{{ section.settings.footer_logo | image_url: width: 160 }}"
-                   alt="{{ shop.name }}"
-                   width="160"
-                   loading="lazy">
+      <!-- Contact Column -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">{{ section.settings.contact_title | default: 'Contact' }}</h4>
+        <address class="footer-contact">
+          {%- if section.settings.email != blank -%}
+            <a href="mailto:{{ section.settings.email }}" class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1.5 3.5h11v7h-11v-7zm0 0l5.5 4 5.5-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ section.settings.email }}
             </a>
-          {%- else -%}
-            <div class="kic-footer__logo-text">
-              <span>KIC</span>
-              <small>INDUSTRIAL STRAPPING</small>
-            </div>
           {%- endif -%}
-          <p class="kic-footer__brand-desc">
-            KIC (Korea Industrial Company) is a 3rd-generation family-owned Korean manufacturer of PP strapping bands and HDPE tying tape, proudly serving global B2B partners since 1973.
-          </p>
-          <div class="kic-footer__social">
-            {%- if settings.social_linkedin_link != blank -%}
-              <a href="{{ settings.social_linkedin_link }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            {%- endif -%}
-            {%- if settings.social_youtube_link != blank -%}
-              <a href="{{ settings.social_youtube_link }}" target="_blank" rel="noopener" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-              </a>
-            {%- endif -%}
-            {%- if settings.social_facebook_link != blank -%}
-              <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            {%- endif -%}
-            {%- if settings.social_instagram_link != blank -%}
-              <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-            {%- endif -%}
-          </div>
-        </div>
-
-        <!-- Products Links -->
-        <div class="kic-footer__col">
-          <h4 class="kic-footer__col-title">Products</h4>
-          <ul>
-            <li><a href="/collections/fully-auto-machine-grade">Fully Auto Machine Grade</a></li>
-            <li><a href="/collections/semi-auto-machine-grade">Semi Auto Machine Grade</a></li>
-            <li><a href="/collections/hand-grade">Hand Grade / Manual</a></li>
-            <li><a href="/collections/high-tension">High Tension Grade</a></li>
-            <li><a href="/collections/pe-tying-tape">PE Tying Tape</a></li>
-            <li><a href="/collections/buckles-seals">Buckles &amp; Seals</a></li>
-            <li><a href="{{ routes.collections_url }}">All Products</a></li>
-          </ul>
-        </div>
-
-        <!-- Company Links -->
-        <div class="kic-footer__col">
-          <h4 class="kic-footer__col-title">Company</h4>
-          <ul>
-            <li><a href="/pages/about">About KIC</a></li>
-            <li><a href="/pages/history">Company History</a></li>
-            <li><a href="/pages/manufacturing">Manufacturing</a></li>
-            <li><a href="/pages/quality">Quality &amp; Certifications</a></li>
-            <li><a href="/pages/sustainability">Sustainability</a></li>
-            <li><a href="/blogs/news">Blog &amp; News</a></li>
-            <li><a href="/pages/contact">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact & RFQ -->
-        <div class="kic-footer__col kic-footer__col--contact">
-          <h4 class="kic-footer__col-title">Contact &amp; RFQ</h4>
-          <ul class="kic-footer__contact-list">
-            <li>
-              <i class="fas fa-map-marker-alt"></i>
-              <span>15, Hwanggeum-ro 273beon-gil, Yangchon-eup, Gimpo-si, Gyeonggi-do, Korea</span>
-            </li>
-            <li>
-              <i class="fas fa-phone-alt"></i>
-              <a href="tel:+82319981740">+82-31-998-1740</a>
-            </li>
-            <li>
-              <i class="fas fa-fax"></i>
-              <span>Fax: +82-31-998-1743</span>
-            </li>
-            <li>
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:sales@powerband.co.kr">sales@powerband.co.kr</a>
-            </li>
-          </ul>
-          <div class="kic-footer__rfq-cta">
-            <p>Ready to source? Get a tailored quote for your requirements.</p>
-            <button class="btn btn--primary btn--block" id="open-rfq-modal-footer">
-              <i class="fas fa-file-invoice"></i>
-              Request a Quote (RFQ)
-            </button>
-          </div>
-        </div>
-
+          {%- if section.settings.phone != blank -%}
+            <a href="tel:{{ section.settings.phone }}" class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1.5 2.5a1 1 0 011-1h1.84a1 1 0 01.98.83L5.8 5.2a1 1 0 01-.54 1.05l-.82.41A9.5 9.5 0 007.34 9.56l.41-.82a1 1 0 011.05-.54l2.87.46a1 1 0 01.83.98V11.5a1 1 0 01-1 1h-.5C5.03 12.5 1.5 8.97 1.5 4.5v-.5-.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ section.settings.phone }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.fax != blank -%}
+            <span class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 3V1.5M9 3V1.5M2 6h10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              FAX {{ section.settings.fax }}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.address != blank -%}
+            <span class="footer-contact-item footer-address">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C5.07 1.5 3.5 3.07 3.5 5c0 2.63 3.5 7 3.5 7s3.5-4.37 3.5-7c0-1.93-1.57-3.5-3.5-3.5z" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="5" r="1" fill="currentColor"/></svg>
+              {{ section.settings.address }}
+            </span>
+          {%- endif -%}
+        </address>
       </div>
     </div>
-  </div>
 
-  <!-- Footer Bottom -->
-  <div class="kic-footer__bottom">
-    <div class="page-width">
-      <div class="kic-footer__bottom-inner">
-        <div class="kic-footer__copyright">
-          <p>
-            &copy; {{ 'now' | date: '%Y' }} KIC (Korea Industrial Company). All Rights Reserved.
-            &nbsp;|&nbsp;
-            Business Reg. No: 130-81-49773
-          </p>
-        </div>
-        <div class="kic-footer__legal-links">
-          <a href="/pages/privacy-policy">Privacy Policy</a>
-          <a href="/pages/terms-of-service">Terms of Service</a>
-          <a href="/pages/shipping-policy">Shipping Policy</a>
-        </div>
-        <div class="kic-footer__made-in">
-          <span>🇰🇷 Made in Korea</span>
-        </div>
+    <!-- Business Registration (Korean legal requirement) -->
+    {%- if section.settings.show_biz_info -%}
+      <div class="footer-biz-info">
+        {{ section.settings.biz_info }}
+      </div>
+    {%- endif -%}
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_suffix | default: 'All rights reserved.' }}
+      </p>
+      <div class="footer-policy-links">
+        {%- for link in linklists['footer'].links -%}
+          <a href="{{ link.url }}" class="policy-link">{{ link.title }}</a>
+        {%- endfor -%}
       </div>
     </div>
   </div>
@@ -179,10 +110,38 @@
 {
   "name": "Footer",
   "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "textarea", "id": "tagline", "label": "Tagline", "default": "3rd generation family business manufacturing PP Band & PE Tying Tape since 1973." },
+    { "type": "checkbox", "id": "show_social", "label": "Show social links", "default": true },
+    { "type": "url", "id": "instagram", "label": "Instagram URL", "default": "https://www.instagram.com/kicpowerband/" },
+    { "type": "url", "id": "facebook", "label": "Facebook URL", "default": "https://www.facebook.com/profile.php?id=100073509880467" },
+    { "type": "url", "id": "youtube", "label": "YouTube URL", "default": "https://www.youtube.com/channel/UC-JzKSeh_axjseWhiP07abA" },
+    { "type": "header", "content": "Contact Info" },
+    { "type": "text", "id": "contact_title", "label": "Contact column title", "default": "Contact" },
+    { "type": "text", "id": "email", "label": "Email", "default": "sales@powerband.co.kr" },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "+82-31-998-1740" },
+    { "type": "text", "id": "fax", "label": "Fax", "default": "031-998-1743" },
+    { "type": "textarea", "id": "address", "label": "Address", "default": "15, Hwanggeum-ro 273beon-gil, Yangchon-eup, Gimpo-si, Gyeonggi-do, Korea" },
+    { "type": "header", "content": "Business Registration" },
+    { "type": "checkbox", "id": "show_biz_info", "label": "Show Korean business info", "default": true },
+    { "type": "textarea", "id": "biz_info", "label": "Business registration info", "default": "회사명: (주)케이아이씨 | 대표자: 신충식 | 사업자등록번호: 130-81-49773 | 통신판매업신고: 제 2021-경기김포-3007 호 | 주소: 경기도 김포시 양촌읍 황금로 273번길 15" },
+    { "type": "text", "id": "copyright_suffix", "label": "Copyright suffix", "default": "All rights reserved. Est. 1973" }
+  ],
+  "blocks": [
     {
-      "type": "image_picker",
-      "id": "footer_logo",
-      "label": "Footer logo"
+      "type": "cert",
+      "name": "Certification",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "ISO 9001 Certified" }
+      ]
+    },
+    {
+      "type": "link_column",
+      "name": "Link Column",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Column title", "default": "Quick Links" },
+        { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+      ]
     }
   ]
 }

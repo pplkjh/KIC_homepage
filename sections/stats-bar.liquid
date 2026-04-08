@@ -1,111 +1,78 @@
-<!-- KIC Stats / Trust Bar Section -->
-<section class="kic-stats-bar section-{{ section.id }}" style="background: {{ section.settings.bg_color }};">
-  <div class="page-width">
-    <div class="kic-stats-bar__grid">
+<section class="section stats-bar" id="about-stats">
+  <div class="container">
+    <div class="stats-inner animate-on-scroll">
       {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'stat' -%}
-            <div class="kic-stats-bar__item" {{ block.shopify_attributes }}>
-              {%- if block.settings.icon != blank -%}
-                <i class="{{ block.settings.icon }} kic-stats-bar__icon"></i>
-              {%- endif -%}
-              <div class="kic-stats-bar__text">
-                <span class="kic-stats-bar__number" data-count="{{ block.settings.number }}">{{ block.settings.number }}</span>
-                <span class="kic-stats-bar__label">{{ block.settings.label }}</span>
-              </div>
-            </div>
-        {%- endcase -%}
+        {%- if block.type == 'stat' -%}
+          <div class="stat-item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              <div class="stat-icon">{{ block.settings.icon }}</div>
+            {%- endif -%}
+            <div class="stat-value" data-count="{{ block.settings.value_raw }}">{{ block.settings.value }}</div>
+            <div class="stat-label">{{ block.settings.label }}</div>
+            {%- if block.settings.desc != blank -%}
+              <div class="stat-desc">{{ block.settings.desc }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
+
+    {%- if section.settings.certs_title != blank -%}
+      <div class="certs-row animate-on-scroll">
+        <p class="certs-title">{{ section.settings.certs_title }}</p>
+        <div class="certs-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'certification' -%}
+              <div class="cert-badge" {{ block.shopify_attributes }}>
+                <span class="cert-icon">{{ block.settings.icon | default: '🏆' }}</span>
+                <span class="cert-name">{{ block.settings.name }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Stats Bar",
-  "tag": "section",
-  "class": "kic-section-stats",
+  "name": "Stats & Certifications",
   "settings": [
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default": "#1a3a5c"
-    }
+    { "type": "text", "id": "certs_title", "label": "Certifications label", "default": "Certifications & Standards" }
   ],
   "blocks": [
     {
       "type": "stat",
-      "name": "Statistic",
+      "name": "Stat",
       "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Font Awesome icon class",
-          "default": "fas fa-industry"
-        },
-        {
-          "type": "text",
-          "id": "number",
-          "label": "Number / Value",
-          "default": "50+"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label",
-          "default": "Years of Manufacturing"
-        }
+        { "type": "text", "id": "icon", "label": "Icon (emoji)" },
+        { "type": "text", "id": "value", "label": "Display value (e.g. 50+)", "default": "50+" },
+        { "type": "text", "id": "value_raw", "label": "Raw number for counter animation", "default": "50" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Years of Excellence" },
+        { "type": "text", "id": "desc", "label": "Description (optional)" }
+      ]
+    },
+    {
+      "type": "certification",
+      "name": "Certification Badge",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "🏆" },
+        { "type": "text", "id": "name", "label": "Certification name", "default": "ISO 9001" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "Stats Bar",
-      "category": "KIC Sections",
-      "blocks": [
-        {
-          "type": "stat",
-          "settings": {
-            "icon": "fas fa-history",
-            "number": "50+",
-            "label": "Years of Manufacturing"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "icon": "fas fa-globe-asia",
-            "number": "20+",
-            "label": "Countries Served"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "icon": "fas fa-cogs",
-            "number": "100+",
-            "label": "Product Variants"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "icon": "fas fa-certificate",
-            "number": "ISO",
-            "label": "9001:2015 Certified"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "icon": "fas fa-users",
-            "number": "3rd",
-            "label": "Generation Family Business"
-          }
-        }
-      ]
-    }
-  ]
+  "presets": [{
+    "name": "Stats & Certifications",
+    "blocks": [
+      { "type": "stat", "settings": { "icon": "📅", "value": "50+", "value_raw": "50", "label": "Years of Excellence", "desc": "Est. 1973, 3rd generation family business" } },
+      { "type": "stat", "settings": { "icon": "🌍", "value": "20+", "value_raw": "20", "label": "Countries Served", "desc": "Global export network" } },
+      { "type": "stat", "settings": { "icon": "🏭", "value": "500 t/mo", "value_raw": "500", "label": "Production Capacity" } },
+      { "type": "stat", "settings": { "icon": "🤝", "value": "544", "value_raw": "544", "label": "Active Clients" } },
+      { "type": "certification", "settings": { "icon": "🏆", "name": "ISO 9001 Certified" } },
+      { "type": "certification", "settings": { "icon": "♻️", "name": "RoHS Compliant" } },
+      { "type": "certification", "settings": { "icon": "🔵", "name": "Samsung Official Supplier" } }
+    ]
+  }]
 }
 {% endschema %}

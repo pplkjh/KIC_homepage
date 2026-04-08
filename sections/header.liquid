@@ -1,234 +1,130 @@
-<!-- KIC Header Section -->
-<header class="kic-header" id="kic-header">
-  <div class="kic-header__announcement" id="announcement-bar">
-    <p>
-      <i class="fas fa-phone-alt"></i>
-      <strong>Global Sales:</strong> +82-31-998-1740 &nbsp;|&nbsp;
-      <i class="fas fa-envelope"></i>
-      sales@powerband.co.kr &nbsp;|&nbsp;
-      <i class="fas fa-certificate"></i>
-      ISO 9001 Certified Manufacturer
-    </p>
-  </div>
-
-  <nav class="kic-header__nav">
-    <div class="kic-header__inner page-width">
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
 
       <!-- Logo -->
-      <a href="{{ routes.root_url }}" class="kic-header__logo-link" aria-label="KIC Homepage">
+      <a href="{{ routes.root_url }}" class="header-logo" aria-label="{{ shop.name }}">
         {%- if section.settings.logo != blank -%}
-          <img src="{{ section.settings.logo | image_url: width: 180 }}"
-               alt="{{ shop.name }}"
-               class="kic-header__logo-img"
-               width="180"
-               height="60"
-               loading="eager">
+          {{ section.settings.logo | image_tag: width: 120, alt: shop.name, loading: 'eager' }}
         {%- else -%}
-          <div class="kic-header__logo-text">
-            <span class="kic-header__logo-kic">KIC</span>
-            <span class="kic-header__logo-sub">INDUSTRIAL STRAPPING</span>
-          </div>
+          <span class="header-logo-text">{{ shop.name }}</span>
         {%- endif -%}
       </a>
 
-      <!-- Main Navigation -->
-      <ul class="kic-header__menu" id="kic-main-nav">
-        <li class="kic-header__menu-item">
-          <a href="{{ routes.root_url }}" class="kic-header__menu-link">Home</a>
-        </li>
-
-        <li class="kic-header__menu-item kic-header__menu-item--dropdown">
-          <a href="{{ routes.collections_url }}" class="kic-header__menu-link">
-            Products <i class="fas fa-chevron-down"></i>
-          </a>
-          <div class="kic-header__dropdown kic-header__dropdown--mega">
-            <div class="kic-header__dropdown-inner page-width">
-              <div class="kic-header__dropdown-col">
-                <h4>PP Strapping</h4>
-                <ul>
-                  <li><a href="/collections/fully-auto-machine-grade">Fully Auto Machine Grade</a></li>
-                  <li><a href="/collections/semi-auto-machine-grade">Semi Auto Machine Grade</a></li>
-                  <li><a href="/collections/hand-grade">Hand Grade / Manual</a></li>
-                  <li><a href="/collections/high-tension">High Tension Grade</a></li>
-                  <li><a href="/collections/custom-printed">Custom Printed Strap</a></li>
-                </ul>
-              </div>
-              <div class="kic-header__dropdown-col">
-                <h4>PE / HDPE Products</h4>
-                <ul>
-                  <li><a href="/collections/pe-tying-tape">PE Tying Tape</a></li>
-                  <li><a href="/collections/hdpe-strap">HDPE Baler Strapping</a></li>
-                </ul>
-                <h4 style="margin-top: 1.5rem;">Accessories</h4>
-                <ul>
-                  <li><a href="/collections/buckles-seals">Buckles &amp; Seals</a></li>
-                  <li><a href="/collections/tensioners-tools">Tensioners &amp; Tools</a></li>
-                </ul>
-              </div>
-              <div class="kic-header__dropdown-col kic-header__dropdown-col--featured">
-                <div class="kic-header__dropdown-feature">
-                  <i class="fas fa-star"></i>
-                  <strong>Best Seller</strong>
-                  <p>Fully Auto High Speed Machine Grade PP Strap — Available in custom widths, lengths, and colors.</p>
-                  <a href="/collections/fully-auto-machine-grade" class="btn btn--sm btn--primary">View Range</a>
-                </div>
+      <!-- Desktop Nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        {%- for link in linklists[section.settings.menu].links -%}
+          {%- if link.links != blank -%}
+            <div class="nav-item has-dropdown">
+              <button class="nav-link" aria-expanded="false" aria-haspopup="true">
+                {{ link.title }}
+                <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="nav-dropdown">
+                {%- for child in link.links -%}
+                  <a href="{{ child.url }}" class="nav-dropdown-item {% if child.active %}active{% endif %}">{{ child.title }}</a>
+                {%- endfor -%}
               </div>
             </div>
-          </div>
-        </li>
-
-        <li class="kic-header__menu-item kic-header__menu-item--dropdown">
-          <a href="/pages/about" class="kic-header__menu-link">
-            Company <i class="fas fa-chevron-down"></i>
-          </a>
-          <div class="kic-header__dropdown kic-header__dropdown--simple">
-            <ul>
-              <li><a href="/pages/about">About KIC</a></li>
-              <li><a href="/pages/history">Company History</a></li>
-              <li><a href="/pages/manufacturing">Manufacturing</a></li>
-              <li><a href="/pages/quality">Quality &amp; Certifications</a></li>
-              <li><a href="/pages/sustainability">Sustainability</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="kic-header__menu-item kic-header__menu-item--dropdown">
-          <a href="/pages/industries" class="kic-header__menu-link">
-            Industries <i class="fas fa-chevron-down"></i>
-          </a>
-          <div class="kic-header__dropdown kic-header__dropdown--simple">
-            <ul>
-              <li><a href="/pages/industry-logistics">Logistics &amp; Warehousing</a></li>
-              <li><a href="/pages/industry-agriculture">Agriculture</a></li>
-              <li><a href="/pages/industry-steel">Steel &amp; Metal</a></li>
-              <li><a href="/pages/industry-paper">Paper &amp; Printing</a></li>
-              <li><a href="/pages/industry-textile">Textile</a></li>
-              <li><a href="/pages/industry-wood">Wood &amp; Lumber</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="kic-header__menu-item">
-          <a href="/blogs/news" class="kic-header__menu-link">Blog</a>
-        </li>
-
-        <li class="kic-header__menu-item">
-          <a href="/pages/contact" class="kic-header__menu-link">Contact</a>
-        </li>
-      </ul>
+          {%- else -%}
+            <div class="nav-item">
+              <a href="{{ link.url }}" class="nav-link {% if link.active %}active{% endif %}">{{ link.title }}</a>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
 
       <!-- Header Actions -->
-      <div class="kic-header__actions">
-        <!-- Language Selector (future multilingual) -->
-        <div class="kic-header__lang" id="kic-lang-selector">
-          <button class="kic-header__lang-btn" aria-label="Language">
-            <i class="fas fa-globe"></i>
-            <span>EN</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="kic-header__lang-dropdown">
-            <a href="#" class="active" data-lang="en">English</a>
-            <a href="#" data-lang="ko">한국어</a>
-            <a href="#" data-lang="zh" class="kic-coming-soon">中文 (Soon)</a>
-            <a href="#" data-lang="ja" class="kic-coming-soon">日本語 (Soon)</a>
-            <a href="#" data-lang="de" class="kic-coming-soon">Deutsch (Soon)</a>
+      <div class="header-actions">
+
+        <!-- Language Switcher -->
+        {%- if section.settings.show_language and localization.available_languages.size > 1 -%}
+          <div class="lang-picker" id="lang-picker">
+            <button class="lang-picker-btn" aria-expanded="false" aria-haspopup="listbox">
+              <span>{{ localization.language.iso_code | upcase }}</span>
+              <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="lang-dropdown" role="listbox">
+              {%- form 'localization', id: 'lang-form-desktop', class: 'localization-form' -%}
+                {%- for language in localization.available_languages -%}
+                  <button type="submit" name="locale_code" value="{{ language.iso_code }}"
+                    class="lang-option {% if language.iso_code == localization.language.iso_code %}active{% endif %}"
+                    role="option">
+                    {{ language.endonym_name }}
+                  </button>
+                {%- endfor -%}
+              {%- endform -%}
+            </div>
           </div>
-        </div>
+        {%- endif -%}
 
-        <!-- RFQ Button -->
-        <button class="btn btn--primary btn--sm kic-header__rfq-btn" id="open-rfq-modal">
-          <i class="fas fa-file-invoice"></i>
-          Request Quote
+        <!-- CTA Button -->
+        <a href="{{ section.settings.cta_url | default: '/pages/contact' }}" class="btn btn-primary btn-sm">
+          {{ section.settings.cta_text | default: 'Request Quote' }}
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
         </button>
-
-        <!-- Mobile hamburger -->
-        <button class="kic-header__hamburger" id="kic-hamburger" aria-label="Menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="kic-mobile-menu" id="kic-mobile-menu" aria-hidden="true">
-    <div class="kic-mobile-menu__inner">
-      <button class="kic-mobile-menu__close" id="kic-mobile-close" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <nav>
-        <ul class="kic-mobile-menu__list">
-          <li><a href="{{ routes.root_url }}">Home</a></li>
-          <li class="kic-mobile-menu__item--accordion">
-            <button class="kic-mobile-menu__accordion-btn">
-              Products <i class="fas fa-chevron-down"></i>
-            </button>
-            <ul class="kic-mobile-menu__sub">
-              <li><a href="/collections/fully-auto-machine-grade">Fully Auto Machine Grade</a></li>
-              <li><a href="/collections/semi-auto-machine-grade">Semi Auto Machine Grade</a></li>
-              <li><a href="/collections/hand-grade">Hand Grade / Manual</a></li>
-              <li><a href="/collections/pe-tying-tape">PE Tying Tape</a></li>
-              <li><a href="/collections/buckles-seals">Buckles &amp; Seals</a></li>
-            </ul>
-          </li>
-          <li class="kic-mobile-menu__item--accordion">
-            <button class="kic-mobile-menu__accordion-btn">
-              Company <i class="fas fa-chevron-down"></i>
-            </button>
-            <ul class="kic-mobile-menu__sub">
-              <li><a href="/pages/about">About KIC</a></li>
-              <li><a href="/pages/history">Company History</a></li>
-              <li><a href="/pages/manufacturing">Manufacturing</a></li>
-              <li><a href="/pages/quality">Quality &amp; Certifications</a></li>
-            </ul>
-          </li>
-          <li><a href="/pages/industries">Industries</a></li>
-          <li><a href="/blogs/news">Blog</a></li>
-          <li><a href="/pages/contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="kic-mobile-menu__cta">
-        <button class="btn btn--primary" id="open-rfq-modal-mobile">
-          <i class="fas fa-file-invoice"></i>
-          Request a Quote
-        </button>
-        <div class="kic-mobile-menu__contact">
-          <p><i class="fas fa-phone-alt"></i> +82-31-998-1740</p>
-          <p><i class="fas fa-envelope"></i> sales@powerband.co.kr</p>
-        </div>
       </div>
     </div>
   </div>
-  <div class="kic-mobile-menu__overlay" id="kic-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-nav">
+      {%- for link in linklists[section.settings.menu].links -%}
+        {%- if link.links != blank -%}
+          <div class="mobile-nav-group">
+            <button class="mobile-nav-link mobile-nav-parent" aria-expanded="false">
+              {{ link.title }}
+              <svg class="chevron" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="mobile-nav-children">
+              {%- for child in link.links -%}
+                <a href="{{ child.url }}" class="mobile-nav-child {% if child.active %}active{% endif %}">{{ child.title }}</a>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- else -%}
+          <a href="{{ link.url }}" class="mobile-nav-link {% if link.active %}active{% endif %}">{{ link.title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="mobile-nav-footer">
+        {%- if section.settings.show_language and localization.available_languages.size > 1 -%}
+          <p class="mobile-lang-label">{{ 'general.language' | t }}</p>
+          <div class="mobile-lang-grid">
+            {%- form 'localization', id: 'lang-form-mobile', class: 'localization-form' -%}
+              {%- for language in localization.available_languages -%}
+                <button type="submit" name="locale_code" value="{{ language.iso_code }}"
+                  class="mobile-lang-btn {% if language.iso_code == localization.language.iso_code %}active{% endif %}">
+                  {{ language.iso_code | upcase }} — {{ language.endonym_name }}
+                </button>
+              {%- endfor -%}
+            {%- endform -%}
+          </div>
+        {%- endif -%}
+        <a href="{{ section.settings.cta_url | default: '/pages/contact' }}" class="btn btn-primary w-full">
+          {{ section.settings.cta_text | default: 'Request Quote' }}
+        </a>
+      </div>
+    </nav>
+  </div>
 </header>
 
 {% schema %}
 {
   "name": "Header",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "min": 50,
-      "max": 250,
-      "step": 10,
-      "default": 160,
-      "unit": "px",
-      "label": "Logo width"
-    },
-    {
-      "type": "checkbox",
-      "id": "sticky_header",
-      "label": "Sticky header",
-      "default": true
-    }
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "link_list", "id": "menu", "label": "Navigation menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "show_language", "label": "Show language switcher", "default": true },
+    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Request Quote" },
+    { "type": "url", "id": "cta_url", "label": "CTA button URL" }
   ]
 }
 {% endschema %}

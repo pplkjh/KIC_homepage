@@ -1,48 +1,30 @@
-<!-- Announcement Bar Section Group Item -->
-{%- if section.settings.show_announcement -%}
-  <div class="kic-header__announcement" style="background: {{ section.settings.bg_color }};">
-    <p style="color: {{ section.settings.text_color }};">
-      {%- if section.settings.announcement_text != blank -%}
-        {{ section.settings.announcement_text }}
-      {%- else -%}
-        <i class="fas fa-phone-alt"></i>
-        <strong>Global Sales:</strong> +82-31-998-1740 &nbsp;|&nbsp;
-        <i class="fas fa-envelope"></i>
-        sales@powerband.co.kr &nbsp;|&nbsp;
-        <i class="fas fa-certificate"></i>
-        ISO 9001 Certified Manufacturer — Exporting to 20+ Countries
-      {%- endif -%}
+{% if section.settings.show_bar %}
+<div class="announcement-bar" style="background: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+  <div class="container">
+    <p class="announcement-text">
+      {% if section.settings.icon != blank %}{{ section.settings.icon }} {% endif %}
+      {{ section.settings.text }}
+      {% if section.settings.link != blank %}
+        <a href="{{ section.settings.link }}" style="color: inherit; text-decoration: underline; margin-left: 8px;">
+          {{ section.settings.link_text }} →
+        </a>
+      {% endif %}
     </p>
   </div>
-{%- endif -%}
+</div>
+{% endif %}
 
 {% schema %}
 {
   "name": "Announcement Bar",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_announcement",
-      "default": true,
-      "label": "Show announcement bar"
-    },
-    {
-      "type": "text",
-      "id": "announcement_text",
-      "label": "Announcement text (leave blank for default contact info)"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default": "#1a3a5c"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#ffffff"
-    }
+    { "type": "checkbox", "id": "show_bar", "label": "Show announcement bar", "default": true },
+    { "type": "text", "id": "text", "label": "Announcement text", "default": "ISO 9001 Certified · Samsung Electronics Official Supplier · 50+ Years of Manufacturing Excellence" },
+    { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "🏭" },
+    { "type": "text", "id": "link", "label": "Link URL" },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "Learn More" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#1b5e20" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#ffffff" }
   ]
 }
 {% endschema %}
