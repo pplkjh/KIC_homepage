@@ -1,0 +1,263 @@
+<!-- KIC RFQ (Request For Quote) Form Section -->
+<section class="kic-rfq-section section-{{ section.id }}"
+  style="background: {{ section.settings.bg_color }}; padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <div class="kic-rfq-section__inner">
+
+      <!-- Left: Info Panel -->
+      <div class="kic-rfq-section__info">
+        {%- if section.settings.tagline != blank -%}
+          <span class="kic-section-tagline kic-section-tagline--light">{{ section.settings.tagline }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kic-section-title kic-section-title--white">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body_text != blank -%}
+          <p class="kic-rfq-section__desc">{{ section.settings.body_text }}</p>
+        {%- endif -%}
+
+        <!-- Why RFQ Points -->
+        <ul class="kic-rfq-section__points">
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span>No commitment — just accurate pricing</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span>Quotes tailored to your volume &amp; specs</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span>Response within 24 business hours</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span>OEM/ODM customization available</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span>Freight &amp; logistics support included</span>
+          </li>
+        </ul>
+
+        <div class="kic-rfq-section__contact-direct">
+          <p>Or contact us directly:</p>
+          <a href="tel:+82319981740" class="kic-rfq-section__contact-link">
+            <i class="fas fa-phone-alt"></i>
+            +82-31-998-1740
+          </a>
+          <a href="mailto:sales@powerband.co.kr" class="kic-rfq-section__contact-link">
+            <i class="fas fa-envelope"></i>
+            sales@powerband.co.kr
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: RFQ Form -->
+      <div class="kic-rfq-section__form-wrap">
+        <div class="kic-rfq-form">
+          <h3 class="kic-rfq-form__title">
+            <i class="fas fa-file-invoice"></i>
+            Request a Quote
+          </h3>
+
+          {%- form 'contact', id: 'rfq-inline-form' -%}
+            {%- if form.posted_successfully? -%}
+              <div class="kic-rfq-form__success">
+                <i class="fas fa-check-circle"></i>
+                <h4>Quote Request Sent!</h4>
+                <p>Thank you! Our sales team will contact you within 24 business hours with a personalized quote.</p>
+              </div>
+            {%- else -%}
+
+              <div class="kic-rfq-form__grid">
+
+                <div class="kic-rfq-form__field">
+                  <label for="rfq-name">Full Name <span class="required">*</span></label>
+                  <input type="text"
+                         id="rfq-name"
+                         name="contact[name]"
+                         placeholder="John Smith"
+                         required
+                         autocomplete="name">
+                </div>
+
+                <div class="kic-rfq-form__field">
+                  <label for="rfq-company">Company Name <span class="required">*</span></label>
+                  <input type="text"
+                         id="rfq-company"
+                         name="contact[company]"
+                         placeholder="ABC Industrial Ltd."
+                         required>
+                </div>
+
+                <div class="kic-rfq-form__field">
+                  <label for="rfq-email">Business Email <span class="required">*</span></label>
+                  <input type="email"
+                         id="rfq-email"
+                         name="contact[email]"
+                         placeholder="you@company.com"
+                         required
+                         autocomplete="email">
+                </div>
+
+                <div class="kic-rfq-form__field">
+                  <label for="rfq-phone">Phone / WhatsApp</label>
+                  <input type="tel"
+                         id="rfq-phone"
+                         name="contact[phone]"
+                         placeholder="+1 555 000 0000"
+                         autocomplete="tel">
+                </div>
+
+                <div class="kic-rfq-form__field">
+                  <label for="rfq-country">Country <span class="required">*</span></label>
+                  <select id="rfq-country" name="contact[country]" required>
+                    <option value="">Select Country</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Germany</option>
+                    <option>France</option>
+                    <option>Australia</option>
+                    <option>Canada</option>
+                    <option>Japan</option>
+                    <option>China</option>
+                    <option>South Korea</option>
+                    <option>India</option>
+                    <option>Brazil</option>
+                    <option>Mexico</option>
+                    <option>Netherlands</option>
+                    <option>Italy</option>
+                    <option>Spain</option>
+                    <option>Poland</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="kic-rfq-form__field">
+                  <label for="rfq-product">Product of Interest <span class="required">*</span></label>
+                  <select id="rfq-product" name="contact[product_interest]" required>
+                    <option value="">Select Product</option>
+                    <option>PP Strap — Fully Auto Machine Grade</option>
+                    <option>PP Strap — Semi Auto Machine Grade</option>
+                    <option>PP Strap — Hand Grade / Manual</option>
+                    <option>PP Strap — High Tension Grade</option>
+                    <option>PP Strap — Custom Printed / OEM</option>
+                    <option>PE / HDPE Tying Tape</option>
+                    <option>Buckles &amp; Seals</option>
+                    <option>Tensioners &amp; Tools</option>
+                    <option>Multiple Products / Full Catalog</option>
+                  </select>
+                </div>
+
+                <div class="kic-rfq-form__field kic-rfq-form__field--full">
+                  <label for="rfq-quantity">Estimated Quantity / Order Volume</label>
+                  <input type="text"
+                         id="rfq-quantity"
+                         name="contact[quantity]"
+                         placeholder="e.g. 500 rolls / month, 10 pallets per order">
+                </div>
+
+                <div class="kic-rfq-form__field kic-rfq-form__field--full">
+                  <label for="rfq-specs">Product Specifications / Special Requirements</label>
+                  <textarea id="rfq-specs"
+                            name="contact[specifications]"
+                            rows="4"
+                            placeholder="Width, thickness, breaking strength, color, core size, printing, certifications required, etc."></textarea>
+                </div>
+
+                <div class="kic-rfq-form__field kic-rfq-form__field--full">
+                  <label for="rfq-message">Additional Message</label>
+                  <textarea id="rfq-message"
+                            name="contact[body]"
+                            rows="3"
+                            placeholder="Any additional information, delivery timeline, destination port, etc."></textarea>
+                </div>
+
+              </div>
+
+              <div class="kic-rfq-form__consent">
+                <label class="kic-rfq-form__checkbox">
+                  <input type="checkbox" name="contact[consent]" required>
+                  <span>I agree to be contacted by KIC regarding my quote request and understand that pricing is for B2B wholesale only.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--lg btn--block kic-rfq-form__submit">
+                <i class="fas fa-paper-plane"></i>
+                Submit Quote Request
+              </button>
+
+              <p class="kic-rfq-form__note">
+                <i class="fas fa-lock"></i>
+                Your information is kept strictly confidential. We do not share your details with third parties.
+              </p>
+
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "RFQ Form Section",
+  "tag": "section",
+  "class": "kic-section-rfq",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a3a5c"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "B2B Pricing"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Request a Custom Quote"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Description",
+      "default": "All KIC products are priced on a Request for Quote (RFQ) basis to ensure you receive the most competitive pricing for your specific volume, grade, and destination."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "RFQ Form Section",
+      "category": "KIC Sections"
+    }
+  ]
+}
+{% endschema %}

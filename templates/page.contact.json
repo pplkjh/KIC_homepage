@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "rfq-section": {
+      "type": "rfq-section",
+      "settings": {
+        "tagline": "B2B Pricing",
+        "heading": "Request a Custom Quote",
+        "body_text": "All KIC products are priced on a Request for Quote (RFQ) basis to ensure you receive the most competitive pricing for your specific volume, grade, and destination.",
+        "bg_color": "#1a3a5c",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["main-page", "rfq-section"]
+}

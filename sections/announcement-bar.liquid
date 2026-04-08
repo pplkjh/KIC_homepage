@@ -1,0 +1,48 @@
+<!-- Announcement Bar Section Group Item -->
+{%- if section.settings.show_announcement -%}
+  <div class="kic-header__announcement" style="background: {{ section.settings.bg_color }};">
+    <p style="color: {{ section.settings.text_color }};">
+      {%- if section.settings.announcement_text != blank -%}
+        {{ section.settings.announcement_text }}
+      {%- else -%}
+        <i class="fas fa-phone-alt"></i>
+        <strong>Global Sales:</strong> +82-31-998-1740 &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i>
+        sales@powerband.co.kr &nbsp;|&nbsp;
+        <i class="fas fa-certificate"></i>
+        ISO 9001 Certified Manufacturer — Exporting to 20+ Countries
+      {%- endif -%}
+    </p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "default": true,
+      "label": "Show announcement bar"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text (leave blank for default contact info)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a3a5c"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

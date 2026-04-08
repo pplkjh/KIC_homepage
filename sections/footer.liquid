@@ -1,0 +1,189 @@
+<footer class="kic-footer">
+  <!-- Footer Top: Trust Bar -->
+  <div class="kic-footer__trust">
+    <div class="page-width">
+      <div class="kic-footer__trust-grid">
+        <div class="kic-footer__trust-item">
+          <i class="fas fa-certificate"></i>
+          <div>
+            <strong>ISO 9001:2015</strong>
+            <span>Quality Certified</span>
+          </div>
+        </div>
+        <div class="kic-footer__trust-item">
+          <i class="fas fa-history"></i>
+          <div>
+            <strong>Since 1973</strong>
+            <span>50+ Years of Excellence</span>
+          </div>
+        </div>
+        <div class="kic-footer__trust-item">
+          <i class="fas fa-globe-asia"></i>
+          <div>
+            <strong>20+ Countries</strong>
+            <span>Global Export Network</span>
+          </div>
+        </div>
+        <div class="kic-footer__trust-item">
+          <i class="fas fa-recycle"></i>
+          <div>
+            <strong>RoHS Certified</strong>
+            <span>Eco-Friendly Materials</span>
+          </div>
+        </div>
+        <div class="kic-footer__trust-item">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <strong>OEM / ODM</strong>
+            <span>Custom Manufacturing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Main -->
+  <div class="kic-footer__main">
+    <div class="page-width">
+      <div class="kic-footer__main-grid">
+
+        <!-- Company Info -->
+        <div class="kic-footer__col kic-footer__col--brand">
+          {%- if section.settings.footer_logo != blank -%}
+            <a href="{{ routes.root_url }}" class="kic-footer__logo-link">
+              <img src="{{ section.settings.footer_logo | image_url: width: 160 }}"
+                   alt="{{ shop.name }}"
+                   width="160"
+                   loading="lazy">
+            </a>
+          {%- else -%}
+            <div class="kic-footer__logo-text">
+              <span>KIC</span>
+              <small>INDUSTRIAL STRAPPING</small>
+            </div>
+          {%- endif -%}
+          <p class="kic-footer__brand-desc">
+            KIC (Korea Industrial Company) is a 3rd-generation family-owned Korean manufacturer of PP strapping bands and HDPE tying tape, proudly serving global B2B partners since 1973.
+          </p>
+          <div class="kic-footer__social">
+            {%- if settings.social_linkedin_link != blank -%}
+              <a href="{{ settings.social_linkedin_link }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_youtube_link != blank -%}
+              <a href="{{ settings.social_youtube_link }}" target="_blank" rel="noopener" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_facebook_link != blank -%}
+              <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            {%- endif -%}
+            {%- if settings.social_instagram_link != blank -%}
+              <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- Products Links -->
+        <div class="kic-footer__col">
+          <h4 class="kic-footer__col-title">Products</h4>
+          <ul>
+            <li><a href="/collections/fully-auto-machine-grade">Fully Auto Machine Grade</a></li>
+            <li><a href="/collections/semi-auto-machine-grade">Semi Auto Machine Grade</a></li>
+            <li><a href="/collections/hand-grade">Hand Grade / Manual</a></li>
+            <li><a href="/collections/high-tension">High Tension Grade</a></li>
+            <li><a href="/collections/pe-tying-tape">PE Tying Tape</a></li>
+            <li><a href="/collections/buckles-seals">Buckles &amp; Seals</a></li>
+            <li><a href="{{ routes.collections_url }}">All Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="kic-footer__col">
+          <h4 class="kic-footer__col-title">Company</h4>
+          <ul>
+            <li><a href="/pages/about">About KIC</a></li>
+            <li><a href="/pages/history">Company History</a></li>
+            <li><a href="/pages/manufacturing">Manufacturing</a></li>
+            <li><a href="/pages/quality">Quality &amp; Certifications</a></li>
+            <li><a href="/pages/sustainability">Sustainability</a></li>
+            <li><a href="/blogs/news">Blog &amp; News</a></li>
+            <li><a href="/pages/contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & RFQ -->
+        <div class="kic-footer__col kic-footer__col--contact">
+          <h4 class="kic-footer__col-title">Contact &amp; RFQ</h4>
+          <ul class="kic-footer__contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>15, Hwanggeum-ro 273beon-gil, Yangchon-eup, Gimpo-si, Gyeonggi-do, Korea</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+82319981740">+82-31-998-1740</a>
+            </li>
+            <li>
+              <i class="fas fa-fax"></i>
+              <span>Fax: +82-31-998-1743</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:sales@powerband.co.kr">sales@powerband.co.kr</a>
+            </li>
+          </ul>
+          <div class="kic-footer__rfq-cta">
+            <p>Ready to source? Get a tailored quote for your requirements.</p>
+            <button class="btn btn--primary btn--block" id="open-rfq-modal-footer">
+              <i class="fas fa-file-invoice"></i>
+              Request a Quote (RFQ)
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="kic-footer__bottom">
+    <div class="page-width">
+      <div class="kic-footer__bottom-inner">
+        <div class="kic-footer__copyright">
+          <p>
+            &copy; {{ 'now' | date: '%Y' }} KIC (Korea Industrial Company). All Rights Reserved.
+            &nbsp;|&nbsp;
+            Business Reg. No: 130-81-49773
+          </p>
+        </div>
+        <div class="kic-footer__legal-links">
+          <a href="/pages/privacy-policy">Privacy Policy</a>
+          <a href="/pages/terms-of-service">Terms of Service</a>
+          <a href="/pages/shipping-policy">Shipping Policy</a>
+        </div>
+        <div class="kic-footer__made-in">
+          <span>🇰🇷 Made in Korea</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer logo"
+    }
+  ]
+}
+{% endschema %}

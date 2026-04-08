@@ -1,0 +1,111 @@
+<!-- KIC Stats / Trust Bar Section -->
+<section class="kic-stats-bar section-{{ section.id }}" style="background: {{ section.settings.bg_color }};">
+  <div class="page-width">
+    <div class="kic-stats-bar__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'stat' -%}
+            <div class="kic-stats-bar__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <i class="{{ block.settings.icon }} kic-stats-bar__icon"></i>
+              {%- endif -%}
+              <div class="kic-stats-bar__text">
+                <span class="kic-stats-bar__number" data-count="{{ block.settings.number }}">{{ block.settings.number }}</span>
+                <span class="kic-stats-bar__label">{{ block.settings.label }}</span>
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stats Bar",
+  "tag": "section",
+  "class": "kic-section-stats",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a3a5c"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Font Awesome icon class",
+          "default": "fas fa-industry"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number / Value",
+          "default": "50+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Years of Manufacturing"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats Bar",
+      "category": "KIC Sections",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-history",
+            "number": "50+",
+            "label": "Years of Manufacturing"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-globe-asia",
+            "number": "20+",
+            "label": "Countries Served"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-cogs",
+            "number": "100+",
+            "label": "Product Variants"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-certificate",
+            "number": "ISO",
+            "label": "9001:2015 Certified"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-users",
+            "number": "3rd",
+            "label": "Generation Family Business"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

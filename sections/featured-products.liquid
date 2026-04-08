@@ -1,0 +1,240 @@
+<!-- KIC Featured Products / Product Showcase Section -->
+<section class="kic-products section-{{ section.id }}"
+  style="background: {{ section.settings.bg_color }}; padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <!-- Section Header -->
+    <div class="kic-section-header {% if section.settings.center_header %}kic-section-header--center{% endif %}">
+      {%- if section.settings.tagline != blank -%}
+        <span class="kic-section-tagline">{{ section.settings.tagline }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kic-section-title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="kic-section-subtitle">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Category Tabs -->
+    <div class="kic-products__tabs">
+      <button class="kic-products__tab active" data-tab="all">All Products</button>
+      <button class="kic-products__tab" data-tab="machine">Machine Grade</button>
+      <button class="kic-products__tab" data-tab="hand">Hand Grade</button>
+      <button class="kic-products__tab" data-tab="pe">PE / HDPE</button>
+      <button class="kic-products__tab" data-tab="accessories">Accessories</button>
+    </div>
+
+    <!-- Products Grid using Shopify collection -->
+    {%- assign featured_collection = section.settings.collection -%}
+    {%- if featured_collection != blank -%}
+      <div class="kic-products__grid">
+        {%- for product in featured_collection.products limit: section.settings.products_to_show -%}
+          <div class="kic-product-card" data-category="{{ product.type | handleize }}">
+            <div class="kic-product-card__image-wrap">
+              {%- if product.featured_image != blank -%}
+                <a href="{{ product.url }}">
+                  <img src="{{ product.featured_image | image_url: width: 600 }}"
+                       alt="{{ product.featured_image.alt | escape | default: product.title }}"
+                       class="kic-product-card__image"
+                       loading="lazy"
+                       width="600">
+                  {%- if product.images.size > 1 -%}
+                    <img src="{{ product.images[1] | image_url: width: 600 }}"
+                         alt="{{ product.images[1].alt | escape | default: product.title }}"
+                         class="kic-product-card__image kic-product-card__image--hover"
+                         loading="lazy"
+                         width="600">
+                  {%- endif -%}
+                </a>
+              {%- else -%}
+                <a href="{{ product.url }}" class="kic-product-card__no-image">
+                  <i class="fas fa-box"></i>
+                </a>
+              {%- endif -%}
+
+              <!-- RFQ Badge -->
+              <span class="kic-product-card__rfq-badge">RFQ Only</span>
+
+              {%- if product.tags contains 'bestseller' or product.tags contains 'best-seller' -%}
+                <span class="kic-product-card__badge kic-product-card__badge--bestseller">Best Seller</span>
+              {%- endif -%}
+            </div>
+
+            <div class="kic-product-card__info">
+              {%- if product.type != blank -%}
+                <span class="kic-product-card__type">{{ product.type }}</span>
+              {%- endif -%}
+              <h3 class="kic-product-card__title">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+
+              {%- if product.metafields.kic.strap_size != blank -%}
+                <p class="kic-product-card__spec">
+                  <i class="fas fa-ruler"></i>
+                  <strong>Size:</strong> {{ product.metafields.kic.strap_size }}
+                </p>
+              {%- endif -%}
+              {%- if product.metafields.kic.breaking_strength != blank -%}
+                <p class="kic-product-card__spec">
+                  <i class="fas fa-dumbbell"></i>
+                  <strong>B/S:</strong> {{ product.metafields.kic.breaking_strength }}
+                </p>
+              {%- endif -%}
+
+              <!-- Price: RFQ ONLY — no price shown -->
+              <div class="kic-product-card__price">
+                <span class="kic-product-card__price-rfq">
+                  <i class="fas fa-tag"></i> Price on Request
+                </span>
+              </div>
+
+              <div class="kic-product-card__actions">
+                <button class="btn btn--primary btn--block kic-rfq-trigger"
+                        data-product="{{ product.title | escape }}"
+                        data-product-id="{{ product.id }}">
+                  <i class="fas fa-file-invoice"></i>
+                  Request Quote
+                </button>
+                <a href="{{ product.url }}" class="btn btn--outline btn--block">
+                  <i class="fas fa-info-circle"></i>
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    {%- else -%}
+      <!-- Placeholder products when no collection assigned -->
+      <div class="kic-products__grid">
+        {%- assign placeholder_products = "Fully Auto High Speed Machine Grade,Semi Auto Machine Grade PP Strap,Hand Grade Manual PP Strap,High Tension PP Strapping,PE Tying Tape HDPE,Custom Printed PP Strap" | split: "," -%}
+        {%- assign placeholder_types = "Machine Grade,Machine Grade,Hand Grade,High Tension,PE / HDPE,Custom OEM" | split: "," -%}
+        {%- assign placeholder_specs = "12mm × 2250m / B.S: 130kg,12mm × 3000m / B.S: 110kg,15mm × 1000m / B.S: 180kg,19mm × 1000m / B.S: 350kg,40mm × 1200m,Custom width & length" | split: "," -%}
+        {%- for i in (0..5) -%}
+          <div class="kic-product-card">
+            <div class="kic-product-card__image-wrap kic-product-card__image-wrap--placeholder">
+              {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'kic-product-card__svg-placeholder' }}
+              <span class="kic-product-card__rfq-badge">RFQ Only</span>
+            </div>
+            <div class="kic-product-card__info">
+              <span class="kic-product-card__type">{{ placeholder_types[i] }}</span>
+              <h3 class="kic-product-card__title">{{ placeholder_products[i] }}</h3>
+              <p class="kic-product-card__spec">
+                <i class="fas fa-ruler"></i> {{ placeholder_specs[i] }}
+              </p>
+              <div class="kic-product-card__price">
+                <span class="kic-product-card__price-rfq">
+                  <i class="fas fa-tag"></i> Price on Request
+                </span>
+              </div>
+              <div class="kic-product-card__actions">
+                <button class="btn btn--primary btn--block kic-rfq-trigger"
+                        data-product="{{ placeholder_products[i] | escape }}">
+                  <i class="fas fa-file-invoice"></i>
+                  Request Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <!-- View All CTA -->
+    {%- if section.settings.show_view_all -%}
+      <div class="kic-products__view-all">
+        <a href="{{ routes.collections_url }}" class="btn btn--outline btn--lg">
+          View All Products
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "tag": "section",
+  "class": "kic-section-products",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f5f7fa"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Section tagline",
+      "default": "Our Products"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Industrial PP Strapping Solutions"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "All pricing is RFQ-based. Contact us for competitive wholesale quotes tailored to your volume and specifications."
+    },
+    {
+      "type": "checkbox",
+      "id": "center_header",
+      "label": "Center section header",
+      "default": true
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection to display"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "Products to show"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' button",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products",
+      "category": "KIC Sections"
+    }
+  ]
+}
+{% endschema %}

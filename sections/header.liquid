@@ -1,0 +1,234 @@
+<!-- KIC Header Section -->
+<header class="kic-header" id="kic-header">
+  <div class="kic-header__announcement" id="announcement-bar">
+    <p>
+      <i class="fas fa-phone-alt"></i>
+      <strong>Global Sales:</strong> +82-31-998-1740 &nbsp;|&nbsp;
+      <i class="fas fa-envelope"></i>
+      sales@powerband.co.kr &nbsp;|&nbsp;
+      <i class="fas fa-certificate"></i>
+      ISO 9001 Certified Manufacturer
+    </p>
+  </div>
+
+  <nav class="kic-header__nav">
+    <div class="kic-header__inner page-width">
+
+      <!-- Logo -->
+      <a href="{{ routes.root_url }}" class="kic-header__logo-link" aria-label="KIC Homepage">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: width: 180 }}"
+               alt="{{ shop.name }}"
+               class="kic-header__logo-img"
+               width="180"
+               height="60"
+               loading="eager">
+        {%- else -%}
+          <div class="kic-header__logo-text">
+            <span class="kic-header__logo-kic">KIC</span>
+            <span class="kic-header__logo-sub">INDUSTRIAL STRAPPING</span>
+          </div>
+        {%- endif -%}
+      </a>
+
+      <!-- Main Navigation -->
+      <ul class="kic-header__menu" id="kic-main-nav">
+        <li class="kic-header__menu-item">
+          <a href="{{ routes.root_url }}" class="kic-header__menu-link">Home</a>
+        </li>
+
+        <li class="kic-header__menu-item kic-header__menu-item--dropdown">
+          <a href="{{ routes.collections_url }}" class="kic-header__menu-link">
+            Products <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="kic-header__dropdown kic-header__dropdown--mega">
+            <div class="kic-header__dropdown-inner page-width">
+              <div class="kic-header__dropdown-col">
+                <h4>PP Strapping</h4>
+                <ul>
+                  <li><a href="/collections/fully-auto-machine-grade">Fully Auto Machine Grade</a></li>
+                  <li><a href="/collections/semi-auto-machine-grade">Semi Auto Machine Grade</a></li>
+                  <li><a href="/collections/hand-grade">Hand Grade / Manual</a></li>
+                  <li><a href="/collections/high-tension">High Tension Grade</a></li>
+                  <li><a href="/collections/custom-printed">Custom Printed Strap</a></li>
+                </ul>
+              </div>
+              <div class="kic-header__dropdown-col">
+                <h4>PE / HDPE Products</h4>
+                <ul>
+                  <li><a href="/collections/pe-tying-tape">PE Tying Tape</a></li>
+                  <li><a href="/collections/hdpe-strap">HDPE Baler Strapping</a></li>
+                </ul>
+                <h4 style="margin-top: 1.5rem;">Accessories</h4>
+                <ul>
+                  <li><a href="/collections/buckles-seals">Buckles &amp; Seals</a></li>
+                  <li><a href="/collections/tensioners-tools">Tensioners &amp; Tools</a></li>
+                </ul>
+              </div>
+              <div class="kic-header__dropdown-col kic-header__dropdown-col--featured">
+                <div class="kic-header__dropdown-feature">
+                  <i class="fas fa-star"></i>
+                  <strong>Best Seller</strong>
+                  <p>Fully Auto High Speed Machine Grade PP Strap — Available in custom widths, lengths, and colors.</p>
+                  <a href="/collections/fully-auto-machine-grade" class="btn btn--sm btn--primary">View Range</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="kic-header__menu-item kic-header__menu-item--dropdown">
+          <a href="/pages/about" class="kic-header__menu-link">
+            Company <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="kic-header__dropdown kic-header__dropdown--simple">
+            <ul>
+              <li><a href="/pages/about">About KIC</a></li>
+              <li><a href="/pages/history">Company History</a></li>
+              <li><a href="/pages/manufacturing">Manufacturing</a></li>
+              <li><a href="/pages/quality">Quality &amp; Certifications</a></li>
+              <li><a href="/pages/sustainability">Sustainability</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="kic-header__menu-item kic-header__menu-item--dropdown">
+          <a href="/pages/industries" class="kic-header__menu-link">
+            Industries <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="kic-header__dropdown kic-header__dropdown--simple">
+            <ul>
+              <li><a href="/pages/industry-logistics">Logistics &amp; Warehousing</a></li>
+              <li><a href="/pages/industry-agriculture">Agriculture</a></li>
+              <li><a href="/pages/industry-steel">Steel &amp; Metal</a></li>
+              <li><a href="/pages/industry-paper">Paper &amp; Printing</a></li>
+              <li><a href="/pages/industry-textile">Textile</a></li>
+              <li><a href="/pages/industry-wood">Wood &amp; Lumber</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="kic-header__menu-item">
+          <a href="/blogs/news" class="kic-header__menu-link">Blog</a>
+        </li>
+
+        <li class="kic-header__menu-item">
+          <a href="/pages/contact" class="kic-header__menu-link">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Header Actions -->
+      <div class="kic-header__actions">
+        <!-- Language Selector (future multilingual) -->
+        <div class="kic-header__lang" id="kic-lang-selector">
+          <button class="kic-header__lang-btn" aria-label="Language">
+            <i class="fas fa-globe"></i>
+            <span>EN</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="kic-header__lang-dropdown">
+            <a href="#" class="active" data-lang="en">English</a>
+            <a href="#" data-lang="ko">한국어</a>
+            <a href="#" data-lang="zh" class="kic-coming-soon">中文 (Soon)</a>
+            <a href="#" data-lang="ja" class="kic-coming-soon">日本語 (Soon)</a>
+            <a href="#" data-lang="de" class="kic-coming-soon">Deutsch (Soon)</a>
+          </div>
+        </div>
+
+        <!-- RFQ Button -->
+        <button class="btn btn--primary btn--sm kic-header__rfq-btn" id="open-rfq-modal">
+          <i class="fas fa-file-invoice"></i>
+          Request Quote
+        </button>
+
+        <!-- Mobile hamburger -->
+        <button class="kic-header__hamburger" id="kic-hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="kic-mobile-menu" id="kic-mobile-menu" aria-hidden="true">
+    <div class="kic-mobile-menu__inner">
+      <button class="kic-mobile-menu__close" id="kic-mobile-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <nav>
+        <ul class="kic-mobile-menu__list">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li class="kic-mobile-menu__item--accordion">
+            <button class="kic-mobile-menu__accordion-btn">
+              Products <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="kic-mobile-menu__sub">
+              <li><a href="/collections/fully-auto-machine-grade">Fully Auto Machine Grade</a></li>
+              <li><a href="/collections/semi-auto-machine-grade">Semi Auto Machine Grade</a></li>
+              <li><a href="/collections/hand-grade">Hand Grade / Manual</a></li>
+              <li><a href="/collections/pe-tying-tape">PE Tying Tape</a></li>
+              <li><a href="/collections/buckles-seals">Buckles &amp; Seals</a></li>
+            </ul>
+          </li>
+          <li class="kic-mobile-menu__item--accordion">
+            <button class="kic-mobile-menu__accordion-btn">
+              Company <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="kic-mobile-menu__sub">
+              <li><a href="/pages/about">About KIC</a></li>
+              <li><a href="/pages/history">Company History</a></li>
+              <li><a href="/pages/manufacturing">Manufacturing</a></li>
+              <li><a href="/pages/quality">Quality &amp; Certifications</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/industries">Industries</a></li>
+          <li><a href="/blogs/news">Blog</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="kic-mobile-menu__cta">
+        <button class="btn btn--primary" id="open-rfq-modal-mobile">
+          <i class="fas fa-file-invoice"></i>
+          Request a Quote
+        </button>
+        <div class="kic-mobile-menu__contact">
+          <p><i class="fas fa-phone-alt"></i> +82-31-998-1740</p>
+          <p><i class="fas fa-envelope"></i> sales@powerband.co.kr</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="kic-mobile-menu__overlay" id="kic-menu-overlay"></div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 160,
+      "unit": "px",
+      "label": "Logo width"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Sticky header",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

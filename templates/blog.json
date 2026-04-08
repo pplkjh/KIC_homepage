@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main-blog": {
+      "type": "main-blog",
+      "settings": {
+        "heading": "KIC Industry Insights",
+        "show_image": true,
+        "article_show_author": true,
+        "article_show_date": true
+      }
+    }
+  },
+  "order": ["main-blog"]
+}

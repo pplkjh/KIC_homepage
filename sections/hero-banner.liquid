@@ -1,0 +1,157 @@
+{{ 'section-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="kic-hero" id="section-{{ section.id }}" style="min-height: {{ section.settings.min_height }}px;">
+  <div class="kic-hero__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+
+  {%- if section.settings.hero_video != blank -%}
+    <video class="kic-hero__video" autoplay muted loop playsinline>
+      <source src="{{ section.settings.hero_video }}" type="video/mp4">
+    </video>
+  {%- elsif section.settings.hero_image != blank -%}
+    <div class="kic-hero__bg-image" style="background-image: url('{{ section.settings.hero_image | image_url: width: 1920 }}');"></div>
+  {%- else -%}
+    <div class="kic-hero__bg-default"></div>
+  {%- endif -%}
+
+  <div class="kic-hero__content page-width">
+    <div class="kic-hero__text-wrap">
+      {%- if section.settings.hero_tagline != blank -%}
+        <span class="kic-hero__tagline animate-fadeInUp">{{ section.settings.hero_tagline }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.hero_heading != blank -%}
+        <h1 class="kic-hero__heading animate-fadeInUp animate-delay-1">
+          {{ section.settings.hero_heading }}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.hero_subheading != blank -%}
+        <p class="kic-hero__subheading animate-fadeInUp animate-delay-2">{{ section.settings.hero_subheading }}</p>
+      {%- endif -%}
+
+      <div class="kic-hero__cta-group animate-fadeInUp animate-delay-3">
+        {%- if section.settings.cta_primary_label != blank -%}
+          <a href="{{ section.settings.cta_primary_url }}" class="btn btn--primary">
+            <i class="fas fa-file-alt"></i>
+            {{ section.settings.cta_primary_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta_secondary_label != blank -%}
+          <a href="{{ section.settings.cta_secondary_url }}" class="btn btn--outline-white">
+            <i class="fas fa-box-open"></i>
+            {{ section.settings.cta_secondary_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="kic-hero__badges animate-fadeInUp animate-delay-4">
+        <div class="kic-hero__badge">
+          <i class="fas fa-certificate"></i>
+          <span>ISO 9001 Certified</span>
+        </div>
+        <div class="kic-hero__badge">
+          <i class="fas fa-globe-asia"></i>
+          <span>Exporting to 20+ Countries</span>
+        </div>
+        <div class="kic-hero__badge">
+          <i class="fas fa-industry"></i>
+          <span>Since 1973 — 3rd Generation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="kic-hero__scroll-indicator">
+    <span>Scroll</span>
+    <div class="kic-hero__scroll-line"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "kic-section-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image"
+    },
+    {
+      "type": "text",
+      "id": "hero_video",
+      "label": "Hero background video URL (MP4)",
+      "placeholder": "https://example.com/video.mp4"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "label": "Section height",
+      "default": 750
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 55
+    },
+    {
+      "type": "text",
+      "id": "hero_tagline",
+      "label": "Tagline",
+      "default": "Korean PP Strapping Manufacturer"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Heading",
+      "default": "Industrial Strength,<br>Built Since 1973."
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subheading",
+      "label": "Subheading",
+      "default": "KIC is a 3rd-generation family-owned manufacturer of Polypropylene (PP) strapping and HDPE tying tape — trusted by global industry leaders in 20+ countries."
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_label",
+      "label": "Primary CTA label",
+      "default": "Request a Quote (RFQ)"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "Primary CTA link"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_label",
+      "label": "Secondary CTA label",
+      "default": "View Products"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "Secondary CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "KIC Sections"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,90 @@
+<!-- Cookie Consent Banner -->
+<div class="kic-cookie-banner" id="kic-cookie-banner" style="display: none;" role="region" aria-label="Cookie consent">
+  <div class="kic-cookie-banner__inner page-width">
+    <div class="kic-cookie-banner__text">
+      <i class="fas fa-cookie-bite"></i>
+      <p>
+        We use cookies to improve your experience on our website. By continuing to browse, you agree to our
+        <a href="/pages/privacy-policy">Privacy Policy</a>.
+      </p>
+    </div>
+    <div class="kic-cookie-banner__actions">
+      <button class="btn btn--sm btn--outline" id="kic-cookie-decline">Decline</button>
+      <button class="btn btn--sm btn--primary" id="kic-cookie-accept">Accept Cookies</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.kic-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a2332;
+  border-top: 2px solid #e8820c;
+  z-index: 9999;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kic-cookie-banner.visible { transform: translateY(0); }
+.kic-cookie-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.kic-cookie-banner__text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+.kic-cookie-banner__text i { color: #e8820c; font-size: 1.2rem; flex-shrink: 0; }
+.kic-cookie-banner__text p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+.kic-cookie-banner__text a { color: #e8820c; text-decoration: underline; }
+.kic-cookie-banner__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+@media (max-width: 640px) {
+  .kic-cookie-banner__inner { flex-direction: column; padding: 1rem 1.25rem; }
+  .kic-cookie-banner__actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+
+<script>
+(function() {
+  const banner = document.getElementById('kic-cookie-banner');
+  const acceptBtn = document.getElementById('kic-cookie-accept');
+  const declineBtn = document.getElementById('kic-cookie-decline');
+
+  if (!localStorage.getItem('kic_cookie_consent')) {
+    setTimeout(function() {
+      if (banner) {
+        banner.style.display = 'block';
+        setTimeout(function() { banner.classList.add('visible'); }, 50);
+      }
+    }, 2500);
+  }
+
+  function dismiss() {
+    if (banner) {
+      banner.classList.remove('visible');
+      setTimeout(function() { banner.style.display = 'none'; }, 400);
+    }
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('kic_cookie_consent', 'accepted');
+      dismiss();
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener('click', function() {
+      localStorage.setItem('kic_cookie_consent', 'declined');
+      dismiss();
+    });
+  }
+})();
+</script>

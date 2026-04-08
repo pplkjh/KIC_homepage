@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "settings": {
+        "show_vendor": false,
+        "show_quantity_selector": false
+      },
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "sku": {
+          "type": "sku",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "rfq-button": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<button class='btn btn--primary btn--lg btn--block kic-rfq-trigger' data-product='{{ product.title | escape }}'><i class='fas fa-file-invoice'></i> Request a Quote (RFQ)</button><p class='kic-product-rfq-note'><i class='fas fa-info-circle'></i> Pricing is available on request for B2B wholesale orders only.</p>"
+          }
+        }
+      },
+      "blocks_order": ["title", "sku", "description", "rfq-button"]
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Related Products",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": ["main-product", "product-recommendations"]
+}

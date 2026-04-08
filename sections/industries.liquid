@@ -1,0 +1,196 @@
+<!-- KIC Industries / Applications Section -->
+<section class="kic-industries section-{{ section.id }}"
+  style="background: {{ section.settings.bg_color }}; padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <div class="kic-section-header kic-section-header--center">
+      {%- if section.settings.tagline != blank -%}
+        <span class="kic-section-tagline">{{ section.settings.tagline }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kic-section-title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="kic-section-subtitle">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="kic-industries__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'industry' -%}
+          <a href="{{ block.settings.link }}" class="kic-industry-card" {{ block.shopify_attributes }}>
+            <div class="kic-industry-card__image-wrap">
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: 600 }}"
+                     alt="{{ block.settings.title | escape }}"
+                     class="kic-industry-card__image"
+                     loading="lazy"
+                     width="600">
+              {%- else -%}
+                <div class="kic-industry-card__icon-bg">
+                  <i class="{{ block.settings.icon }}"></i>
+                </div>
+              {%- endif -%}
+              <div class="kic-industry-card__overlay"></div>
+            </div>
+            <div class="kic-industry-card__content">
+              <i class="{{ block.settings.icon }} kic-industry-card__icon"></i>
+              <h3 class="kic-industry-card__title">{{ block.settings.title }}</h3>
+              {%- if block.settings.description != blank -%}
+                <p class="kic-industry-card__desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+              <span class="kic-industry-card__link-text">
+                Learn More <i class="fas fa-arrow-right"></i>
+              </span>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Industries / Applications",
+  "tag": "section",
+  "class": "kic-section-industries",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Applications"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Industries We Serve"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "KIC PP strapping solutions are trusted across diverse industries worldwide — from logistics hubs to agricultural farms."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "industry",
+      "name": "Industry Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Industry image"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Font Awesome icon class",
+          "default": "fas fa-shipping-fast"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Industry title",
+          "default": "Logistics & Warehousing"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Short description",
+          "default": "Secure pallet bundling for distribution centers and freight handling."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Industries / Applications",
+      "category": "KIC Sections",
+      "blocks": [
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-shipping-fast",
+            "title": "Logistics & Warehousing",
+            "description": "Secure pallet bundling and high-speed automated strapping for global distribution."
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-seedling",
+            "title": "Agriculture",
+            "description": "Durable baling and bundling for hay, straw, and agricultural produce."
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-hard-hat",
+            "title": "Steel & Metal",
+            "description": "Heavy-duty high-tension PP strapping for coiled steel, rods, and structural materials."
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-newspaper",
+            "title": "Paper & Printing",
+            "description": "Reliable strapping for reams, rolls, and finished paper product bundles."
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-tshirt",
+            "title": "Textile",
+            "description": "Gentle yet strong bundling solutions for fabric rolls and garment packages."
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-tree",
+            "title": "Wood & Lumber",
+            "description": "Tough weather-resistant PP strapping for timber, plywood, and panel materials."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

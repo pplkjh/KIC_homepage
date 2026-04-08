@@ -1,0 +1,416 @@
+{
+  "sections": {
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "hero_tagline": "Korean PP Strapping Manufacturer — Est. 1973",
+        "hero_heading": "Industrial Strength,<br>Built to Last.",
+        "hero_subheading": "KIC is a 3rd-generation family-owned Korean manufacturer of Polypropylene (PP) strapping and HDPE tying tape — trusted by global B2B buyers in 20+ countries.",
+        "min_height": 750,
+        "overlay_opacity": 55,
+        "cta_primary_label": "Request a Quote (RFQ)",
+        "cta_secondary_label": "Explore Products"
+      }
+    },
+    "stats-bar": {
+      "type": "stats-bar",
+      "settings": {
+        "bg_color": "#1a3a5c"
+      },
+      "blocks": {
+        "stat1": {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-history",
+            "number": "50+",
+            "label": "Years Manufacturing"
+          }
+        },
+        "stat2": {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-globe-asia",
+            "number": "20+",
+            "label": "Countries Served"
+          }
+        },
+        "stat3": {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-cogs",
+            "number": "100+",
+            "label": "Product Variants"
+          }
+        },
+        "stat4": {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-certificate",
+            "number": "ISO",
+            "label": "9001:2015 Certified"
+          }
+        },
+        "stat5": {
+          "type": "stat",
+          "settings": {
+            "icon": "fas fa-users",
+            "number": "3rd Gen",
+            "label": "Family Business"
+          }
+        }
+      },
+      "blocks_order": ["stat1", "stat2", "stat3", "stat4", "stat5"]
+    },
+    "about-intro": {
+      "type": "about-intro",
+      "settings": {
+        "tagline": "About KIC",
+        "heading": "3rd Generation Korean PP Strapping Manufacturer",
+        "subheading": "Since 1973, KIC has been crafting world-class industrial strapping solutions trusted by leading manufacturers and distributors worldwide.",
+        "body_text": "<p>KIC (Korea Industrial Company) is a family-owned manufacturer based in Gimpo, Gyeonggi-do, Korea. Founded in 1973 and now operated by its third generation, we bring over 50 years of expertise to every roll of strapping we produce.</p><p>We export to 20+ countries worldwide, serving clients in logistics, agriculture, steel, paper, textile, and wood industries. Our ISO 9001:2015-certified facility ensures consistent quality across every batch.</p>",
+        "badge_number": "1973",
+        "badge_text": "Est.",
+        "cta_label": "Learn More About KIC",
+        "cta_url": "/pages/about",
+        "image_position": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "point1": {
+          "type": "point",
+          "settings": {
+            "text": "ISO 9001:2015 certified quality management system"
+          }
+        },
+        "point2": {
+          "type": "point",
+          "settings": {
+            "text": "50+ years of PP strapping manufacturing expertise"
+          }
+        },
+        "point3": {
+          "type": "point",
+          "settings": {
+            "text": "Exporting to 20+ countries across 5 continents"
+          }
+        },
+        "point4": {
+          "type": "point",
+          "settings": {
+            "text": "RoHS-compliant, eco-friendly raw materials"
+          }
+        },
+        "point5": {
+          "type": "point",
+          "settings": {
+            "text": "Custom OEM/ODM manufacturing available"
+          }
+        }
+      },
+      "blocks_order": ["point1", "point2", "point3", "point4", "point5"]
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "tagline": "Our Products",
+        "heading": "Industrial PP Strapping Solutions",
+        "subheading": "All pricing is RFQ-based. Contact us for competitive wholesale quotes tailored to your volume and specifications.",
+        "center_header": true,
+        "products_to_show": 6,
+        "show_view_all": true,
+        "bg_color": "#f5f7fa",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "industries": {
+      "type": "industries",
+      "settings": {
+        "tagline": "Applications",
+        "heading": "Industries We Serve",
+        "subheading": "KIC PP strapping solutions are trusted across diverse industries worldwide — from logistics hubs to agricultural farms.",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "ind1": {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-shipping-fast",
+            "title": "Logistics & Warehousing",
+            "description": "Secure pallet bundling and high-speed automated strapping for global distribution centers.",
+            "link": "/pages/industry-logistics"
+          }
+        },
+        "ind2": {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-seedling",
+            "title": "Agriculture",
+            "description": "Durable baling and bundling for hay, straw, and agricultural produce.",
+            "link": "/pages/industry-agriculture"
+          }
+        },
+        "ind3": {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-hard-hat",
+            "title": "Steel & Metal",
+            "description": "Heavy-duty high-tension PP strapping for coiled steel, rods, and structural materials.",
+            "link": "/pages/industry-steel"
+          }
+        },
+        "ind4": {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-newspaper",
+            "title": "Paper & Printing",
+            "description": "Reliable strapping for reams, rolls, and finished paper product bundles.",
+            "link": "/pages/industry-paper"
+          }
+        },
+        "ind5": {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-tshirt",
+            "title": "Textile",
+            "description": "Gentle yet strong bundling solutions for fabric rolls and garment packages.",
+            "link": "/pages/industry-textile"
+          }
+        },
+        "ind6": {
+          "type": "industry",
+          "settings": {
+            "icon": "fas fa-tree",
+            "title": "Wood & Lumber",
+            "description": "Tough weather-resistant PP strapping for timber, plywood, and panel materials.",
+            "link": "/pages/industry-wood"
+          }
+        }
+      },
+      "blocks_order": ["ind1", "ind2", "ind3", "ind4", "ind5", "ind6"]
+    },
+    "why-kic": {
+      "type": "why-kic",
+      "settings": {
+        "tagline": "Why KIC",
+        "heading": "The KIC Advantage",
+        "subheading": "What sets KIC apart from other strapping suppliers? Here's why thousands of global buyers trust us.",
+        "cta_label": "Request a Free Sample",
+        "cta_url": "/pages/contact",
+        "bg_color": "#f5f7fa",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "val1": {
+          "type": "value",
+          "settings": {
+            "icon": "fas fa-dumbbell",
+            "title": "Superior Breaking Strength",
+            "description": "Higher breaking strength than similar straps — engineered with Korean virgin resin for consistent, reliable performance under load."
+          }
+        },
+        "val2": {
+          "type": "value",
+          "settings": {
+            "icon": "fas fa-certificate",
+            "title": "ISO 9001:2015 Certified",
+            "description": "Our quality management system is internationally certified, ensuring every roll meets strict specifications from start to finish."
+          }
+        },
+        "val3": {
+          "type": "value",
+          "settings": {
+            "icon": "fas fa-ruler-combined",
+            "title": "Consistent Specification",
+            "description": "Consistent width, thickness, and breaking strength from the first meter to the last. No camber. No surprises."
+          }
+        },
+        "val4": {
+          "type": "value",
+          "settings": {
+            "icon": "fas fa-palette",
+            "title": "Custom Color & Print OEM",
+            "description": "Vivid and unique colored straps with RoHS-certified materials. Custom printed straps with OEM shipping marks available."
+          }
+        },
+        "val5": {
+          "type": "value",
+          "settings": {
+            "icon": "fas fa-leaf",
+            "title": "Eco-Friendly Materials",
+            "description": "Korean virgin resin leaves fewer residues in your machines and causes less environmental impact than recycled alternatives."
+          }
+        },
+        "val6": {
+          "type": "value",
+          "settings": {
+            "icon": "fas fa-globe-asia",
+            "title": "20+ Countries Export Experience",
+            "description": "Decades of exporting expertise means we understand customs, logistics, and compliance for your destination market."
+          }
+        }
+      },
+      "blocks_order": ["val1", "val2", "val3", "val4", "val5", "val6"]
+    },
+    "company-history": {
+      "type": "company-history",
+      "settings": {
+        "tagline": "Our Story",
+        "heading": "50+ Years of Excellence",
+        "bg_color": "#1a2332",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "m1": {
+          "type": "milestone",
+          "settings": {
+            "year": "1973",
+            "icon": "fas fa-flag",
+            "title": "KIC Founded",
+            "description": "Korea Industrial Company (KIC) was founded by the Shin family in Gimpo, Gyeonggi-do, Korea — beginning production of polypropylene packaging materials."
+          }
+        },
+        "m2": {
+          "type": "milestone",
+          "settings": {
+            "year": "1985",
+            "icon": "fas fa-industry",
+            "title": "Factory Expansion",
+            "description": "Significant expansion of manufacturing capacity with new production lines enabling larger-scale domestic supply."
+          }
+        },
+        "m3": {
+          "type": "milestone",
+          "settings": {
+            "year": "1995",
+            "icon": "fas fa-ship",
+            "title": "First International Exports",
+            "description": "KIC began exporting PP strapping internationally, establishing footholds in Japan and Southeast Asia."
+          }
+        },
+        "m4": {
+          "type": "milestone",
+          "settings": {
+            "year": "2005",
+            "icon": "fas fa-certificate",
+            "title": "ISO 9001 Certification",
+            "description": "KIC achieved ISO 9001 quality management certification, formalizing our commitment to consistent product quality."
+          }
+        },
+        "m5": {
+          "type": "milestone",
+          "settings": {
+            "year": "2010",
+            "icon": "fas fa-globe",
+            "title": "Global Expansion to 10+ Countries",
+            "description": "KIC's export reach expanded to over 10 countries across Europe, North America, and Oceania."
+          }
+        },
+        "m6": {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "icon": "fas fa-users",
+            "title": "3rd Generation Leadership",
+            "description": "The third generation of the Shin family assumed leadership, bringing digital transformation and a renewed focus on global B2B markets."
+          }
+        },
+        "m7": {
+          "type": "milestone",
+          "settings": {
+            "year": "2023",
+            "icon": "fas fa-star",
+            "title": "50th Anniversary — 20+ Countries",
+            "description": "Celebrating 50 years of manufacturing excellence — now exporting to 20+ countries with state-of-the-art production facilities."
+          }
+        }
+      },
+      "blocks_order": ["m1", "m2", "m3", "m4", "m5", "m6", "m7"]
+    },
+    "certifications": {
+      "type": "certifications",
+      "settings": {
+        "tagline": "Quality Assurance",
+        "heading": "Certifications & Standards",
+        "subheading": "Every KIC product undergoes rigorous quality testing. Our certifications prove it.",
+        "bg_color": "#f5f7fa",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "c1": {
+          "type": "cert",
+          "settings": {
+            "icon": "fas fa-certificate",
+            "title": "ISO 9001:2015",
+            "description": "Internationally recognized quality management system certification."
+          }
+        },
+        "c2": {
+          "type": "cert",
+          "settings": {
+            "icon": "fas fa-leaf",
+            "title": "RoHS Compliant",
+            "description": "Materials free of restricted hazardous substances — safe for global markets."
+          }
+        },
+        "c3": {
+          "type": "cert",
+          "settings": {
+            "icon": "fas fa-recycle",
+            "title": "100% Recyclable PP",
+            "description": "All polypropylene strapping is fully recyclable, supporting circular economy practices."
+          }
+        },
+        "c4": {
+          "type": "cert",
+          "settings": {
+            "icon": "fas fa-shield-alt",
+            "title": "Korean Virgin Resin",
+            "description": "Premium Korean-grade virgin polypropylene for superior strength and fewer machine residues."
+          }
+        }
+      },
+      "blocks_order": ["c1", "c2", "c3", "c4"]
+    },
+    "rfq-section": {
+      "type": "rfq-section",
+      "settings": {
+        "tagline": "B2B Pricing",
+        "heading": "Request a Custom Quote",
+        "body_text": "All KIC products are priced on a Request for Quote (RFQ) basis to ensure you receive the most competitive pricing for your specific volume, grade, and destination.",
+        "bg_color": "#1a3a5c",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "blog-preview": {
+      "type": "blog-preview",
+      "settings": {
+        "tagline": "Knowledge Base",
+        "heading": "PP Strapping Industry Insights",
+        "posts_to_show": 3,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "hero-banner",
+    "stats-bar",
+    "about-intro",
+    "featured-products",
+    "industries",
+    "why-kic",
+    "company-history",
+    "certifications",
+    "rfq-section",
+    "blog-preview"
+  ]
+}
