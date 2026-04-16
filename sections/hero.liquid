@@ -1,0 +1,206 @@
+{%- style -%}
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 5rem;
+    background: linear-gradient(to bottom, rgba(250, 250, 248, 0.8), rgba(250, 250, 248, 0.6));
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663559062373/6PkbiX5sXEC8bHAdezvwj7/hero-bg-ZM5KHjMAwuyNt3pXrn9F8T.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.15;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .hero-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2D8659;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(45, 134, 89, 0.3);
+    background: rgba(45, 134, 89, 0.1);
+  }
+
+  .hero-logo {
+    height: 8rem;
+    width: auto;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #2C2C2C;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-logo {
+      height: 6rem;
+    }
+  }
+
+  .hero-description {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 640px) {
+    .hero-buttons {
+      flex-direction: row;
+    }
+  }
+
+  .hero-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .hero-button-primary {
+    background: #2D8659;
+    color: white;
+    box-shadow: 0 4px 12px rgba(45, 134, 89, 0.3);
+  }
+
+  .hero-button-primary:hover {
+    background: #1F5A3F;
+    box-shadow: 0 6px 16px rgba(45, 134, 89, 0.4);
+  }
+
+  .hero-button-secondary {
+    background: transparent;
+    color: #2D8659;
+    border: 2px solid #2D8659;
+  }
+
+  .hero-button-secondary:hover {
+    background: rgba(45, 134, 89, 0.1);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
+  .scroll-indicator-icon {
+    width: 1.5rem;
+    height: 2.5rem;
+    border: 2px solid #2D8659;
+    border-radius: 9999px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  .scroll-indicator-dot {
+    width: 0.25rem;
+    height: 0.5rem;
+    background: #2D8659;
+    border-radius: 9999px;
+    animation: scroll-pulse 1.5s infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+{%- endstyle -%}
+
+<section class="hero" id="home">
+  <div class="hero-background"></div>
+  
+  <div class="hero-content">
+    <div class="hero-label">함께 만드는 지속 가능한 미래</div>
+    
+    <img 
+      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663559062373/6PkbiX5sXEC8bHAdezvwj7/ecotech-logo_6d7b6b4e.png" 
+      alt="ECOTech Logo" 
+      class="hero-logo"
+    />
+    
+    <h1 class="hero-title">신뢰할 수 있는 파트너</h1>
+    
+    <p class="hero-description">
+      수출입, 전자상거래, IT 소프트웨어, 반도체 장비, 부동산, 마케팅, 플랜트 컨설팅<br>
+      다양한 분야에서 고객과 함께 성장하고 있습니다.
+    </p>
+    
+    <div class="hero-buttons">
+      <button class="hero-button hero-button-primary" onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">
+        사업 영역 살펴보기
+        <span>›</span>
+      </button>
+      <button class="hero-button hero-button-secondary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+        문의하기
+      </button>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-indicator-icon">
+      <div class="scroll-indicator-dot"></div>
+    </div>
+  </div>
+</section>

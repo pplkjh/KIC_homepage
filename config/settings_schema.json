@@ -1,0 +1,90 @@
+[
+  {
+    "name": "theme_info",
+    "theme": {
+      "name": "ECOTech - Eco-Friendly Business",
+      "id": 123456789
+    }
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#2D8659"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color",
+        "default": "#D4A574"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#FAFAF8"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "oswald_n6"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "noto_sans_n4"
+      }
+    ]
+  },
+  {
+    "name": "Company Info",
+    "settings": [
+      {
+        "type": "text",
+        "id": "company_name_ko",
+        "label": "Company Name (Korean)",
+        "default": "주식회사 에코테크"
+      },
+      {
+        "type": "text",
+        "id": "company_name_en",
+        "label": "Company Name (English)",
+        "default": "ECO TECH Co., Ltd"
+      },
+      {
+        "type": "text",
+        "id": "company_ceo",
+        "label": "CEO Name",
+        "default": "신오석"
+      },
+      {
+        "type": "text",
+        "id": "company_address",
+        "label": "Address",
+        "default": "경기도 김포시 황금로 273번길 15"
+      },
+      {
+        "type": "text",
+        "id": "company_phone",
+        "label": "Phone",
+        "default": "010-3005-9587"
+      },
+      {
+        "type": "email",
+        "id": "company_email",
+        "label": "Email",
+        "default": "sales@ecotech-korea.com"
+      }
+    ]
+  }
+]

@@ -1,0 +1,292 @@
+{%- style -%}
+  .contact-section {
+    padding: 5rem 2rem;
+    background: #FAFAF8;
+    position: relative;
+  }
+
+  .contact-background {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663559062373/6PkbiX5sXEC8bHAdezvwj7/contact-bg-MDgXzemAfpcqTQM5Tm9vzW.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  .contact-overlay {
+    position: absolute;
+    inset: 0;
+    background: #FAFAF8;
+    opacity: 0.9;
+    z-index: 1;
+  }
+
+  .contact-container {
+    max-width: 48rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2D8659;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .contact-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 1rem;
+  }
+
+  .contact-description {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.125rem;
+    color: #4b5563;
+  }
+
+  .contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(45, 134, 89, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .contact-info-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2D8659;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #999;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .contact-info-value {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2C2C2C;
+  }
+
+  .contact-info-value a {
+    color: #2D8659;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-info-value a:hover {
+    color: #1F5A3F;
+  }
+
+  .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(45, 134, 89, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #2D8659;
+  }
+
+  .form-textarea {
+    resize: none;
+    grid-column: 1 / -1;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 0.75rem 2rem;
+    background: #2D8659;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(45, 134, 89, 0.3);
+  }
+
+  .form-submit:hover {
+    background: #1F5A3F;
+    box-shadow: 0 6px 16px rgba(45, 134, 89, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 3rem 1rem;
+    }
+
+    .contact-title {
+      font-size: 1.875rem;
+    }
+
+    .contact-info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<section class="contact-section" id="contact">
+  <div class="contact-background"></div>
+  <div class="contact-overlay"></div>
+
+  <div class="contact-container">
+    <div class="contact-header">
+      <span class="contact-label">연락처</span>
+      <h2 class="contact-title">ECOTech와 함께하세요</h2>
+      <p class="contact-description">
+        언제든지 편하게 연락주세요. 함께 성장할 기회를 만들어가겠습니다.
+      </p>
+    </div>
+
+    <div class="contact-info-grid">
+      <div class="contact-info-card">
+        <h3 class="contact-info-title">회사 정보</h3>
+        
+        <div class="contact-info-item">
+          <div class="contact-info-label">회사명</div>
+          <div class="contact-info-value">주식회사 에코테크</div>
+          <div class="contact-info-value" style="font-weight: 400; color: #666; margin-top: 0.25rem;">
+            ECO TECH Co., Ltd
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-label">대표</div>
+          <div class="contact-info-value">신오석</div>
+        </div>
+      </div>
+
+      <div class="contact-info-card">
+        <h3 class="contact-info-title">연락처</h3>
+        
+        <div class="contact-info-item">
+          <div class="contact-info-label">주소</div>
+          <div class="contact-info-value">경기도 김포시 황금로 273번길 15</div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-label">전화</div>
+          <div class="contact-info-value">
+            <a href="tel:010-3005-9587">010-3005-9587</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-label">이메일</div>
+          <div class="contact-info-value">
+            <a href="mailto:sales@ecotech-korea.com">sales@ecotech-korea.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <input 
+            type="text" 
+            class="form-input" 
+            placeholder="이름" 
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input 
+            type="email" 
+            class="form-input" 
+            placeholder="이메일" 
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="text" 
+          class="form-input" 
+          placeholder="제목" 
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <textarea 
+          class="form-textarea" 
+          placeholder="메시지" 
+          rows="5" 
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">메시지 보내기</button>
+    </form>
+  </div>
+</section>

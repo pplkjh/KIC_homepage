@@ -1,0 +1,117 @@
+{%- style -%}
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(45, 134, 89, 0.2);
+    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+  }
+
+  .navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 3.5rem;
+    width: auto;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .nav-items {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #2D8659;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #2D8659;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .cta-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 1px solid #2D8659;
+    background: #2D8659;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .cta-button:hover {
+    background: #1F5A3F;
+    border-color: #1F5A3F;
+  }
+
+  @media (max-width: 768px) {
+    .nav-items {
+      display: none;
+    }
+
+    .logo {
+      height: 2.5rem;
+    }
+  }
+{%- endstyle -%}
+
+<header class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo-link">
+      <img 
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663559062373/6PkbiX5sXEC8bHAdezvwj7/ecotech-logo_6d7b6b4e.png" 
+        alt="ECOTech Logo" 
+        class="logo"
+      />
+    </a>
+    
+    <nav class="nav-items">
+      <a href="#home" class="nav-link">홈</a>
+      <a href="#about" class="nav-link">회사 소개</a>
+      <a href="#services" class="nav-link">사업 영역</a>
+      <a href="#contact" class="nav-link">문의하기</a>
+    </nav>
+
+    <button class="cta-button">문의하기</button>
+  </div>
+</header>

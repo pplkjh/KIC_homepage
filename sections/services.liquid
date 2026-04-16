@@ -1,0 +1,250 @@
+{%- style -%}
+  .services-section {
+    padding: 5rem 2rem;
+    background: #FAFAF8;
+  }
+
+  .services-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .services-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2D8659;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .services-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 1rem;
+  }
+
+  .services-description {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.125rem;
+    color: #4b5563;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid #2D8659;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:nth-child(even) {
+    border-left-color: #D4A574;
+  }
+
+  .service-card:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 20px 40px rgba(45, 134, 89, 0.08);
+    background: white;
+  }
+
+  .service-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-icon {
+    transform: scale(1.1);
+  }
+
+  .service-card:nth-child(odd) .service-icon {
+    background: rgba(45, 134, 89, 0.15);
+    color: #2D8659;
+  }
+
+  .service-card:nth-child(even) .service-icon {
+    background: rgba(212, 165, 116, 0.15);
+    color: #D4A574;
+  }
+
+  .service-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-description {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .service-vision {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e5e5;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .service-card:nth-child(odd) .service-vision {
+    color: #2D8659;
+  }
+
+  .service-card:nth-child(even) .service-vision {
+    color: #D4A574;
+  }
+
+  .service-vision-dot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+  }
+
+  .service-card:nth-child(odd) .service-vision-dot {
+    background: #2D8659;
+  }
+
+  .service-card:nth-child(even) .service-vision-dot {
+    background: #D4A574;
+  }
+
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 3rem 1rem;
+    }
+
+    .services-title {
+      font-size: 1.875rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<section class="services-section" id="services">
+  <div class="services-container">
+    <div class="services-header">
+      <span class="services-label">사업 영역</span>
+      <h2 class="services-title">다양한 분야에서 함께합니다</h2>
+      <p class="services-description">
+        각 분야에서 전문성을 바탕으로 고객의 성공을 지원합니다.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <h3 class="service-title">수출입 및 도소매</h3>
+        <p class="service-description">원자재, 상품, 기계 등 글로벌 무역 네트워크 구축</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          지속 가능한 국제 거래
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3 class="service-title">전자상거래</h3>
+        <p class="service-description">온라인 판매 및 디지털 마케팅 플랫폼</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          디지털로 연결된 세상
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3 class="service-title">정보통신 소프트웨어</h3>
+        <p class="service-description">프로그래밍 및 IT 솔루션 개발</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          기술로 만드는 미래
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3 class="service-title">반도체 포장 장비</h3>
+        <p class="service-description">포장자재 및 반도체 장비 수출입</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          정밀한 기술 파트너
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3 class="service-title">부동산 입대업</h3>
+        <p class="service-description">전문적인 부동산 중개 및 관리 서비스</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          신뢰의 공간 창조
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3 class="service-title">마케팅 및 전시</h3>
+        <p class="service-description">홍보, 전시, 마케팅 컨설팅 서비스</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          브랜드와 함께 성장
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌱</div>
+        <h3 class="service-title">플랜트 수출</h3>
+        <p class="service-description">산업용 플랜트 설계 및 수출</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          친환경 산업 구축
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3 class="service-title">플랜트 컨설팅</h3>
+        <p class="service-description">전문적인 플랜트 컨설팅 서비스</p>
+        <div class="service-vision">
+          <span class="service-vision-dot"></span>
+          함께 성장하는 파트너
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

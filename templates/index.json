@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "header": {
+      "type": "header"
+    },
+    "hero": {
+      "type": "hero"
+    },
+    "vision": {
+      "type": "vision"
+    },
+    "services": {
+      "type": "services"
+    },
+    "about": {
+      "type": "about"
+    },
+    "contact": {
+      "type": "contact"
+    },
+    "footer": {
+      "type": "footer"
+    }
+  },
+  "order": [
+    "header",
+    "hero",
+    "vision",
+    "services",
+    "about",
+    "contact",
+    "footer"
+  ]
+}

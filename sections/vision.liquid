@@ -1,0 +1,148 @@
+{%- style -%}
+  .vision-section {
+    padding: 5rem 2rem;
+    background: white;
+  }
+
+  .vision-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .vision-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .vision-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2D8659;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .vision-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 1rem;
+  }
+
+  .vision-description {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.125rem;
+    color: #4b5563;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .vision-card {
+    background: white;
+    border: 1px solid rgba(45, 134, 89, 0.2);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .vision-card:hover {
+    border-color: rgba(45, 134, 89, 0.5);
+    box-shadow: 0 20px 40px rgba(45, 134, 89, 0.08);
+  }
+
+  .vision-card-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: #2D8659;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .vision-card:hover .vision-card-dot {
+    transform: scale(1.5);
+  }
+
+  .vision-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 0.5rem;
+  }
+
+  .vision-card-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.875rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .vision-section {
+      padding: 3rem 1rem;
+    }
+
+    .vision-title {
+      font-size: 1.875rem;
+    }
+  }
+{%- endstyle -%}
+
+<section class="vision-section" id="vision">
+  <div class="vision-container">
+    <div class="vision-header">
+      <span class="vision-label">우리의 가치</span>
+      <h2 class="vision-title">함께 만드는 긍정적인 변화</h2>
+      <p class="vision-description">
+        ECOTech는 친환경 가치와 신뢰를 바탕으로 고객과 함께 성장합니다.
+      </p>
+    </div>
+
+    <div class="vision-grid">
+      <div class="vision-card">
+        <div class="vision-card-dot"></div>
+        <h3 class="vision-card-title">친환경 가치</h3>
+        <p class="vision-card-text">
+          지속 가능한 비즈니스를 통해 환경과 사회에 긍정적인 영향을 미칩니다.
+        </p>
+      </div>
+
+      <div class="vision-card">
+        <div class="vision-card-dot"></div>
+        <h3 class="vision-card-title">신뢰의 파트너</h3>
+        <p class="vision-card-text">
+          고객과 함께 성장하며, 투명하고 정직한 거래를 추구합니다.
+        </p>
+      </div>
+
+      <div class="vision-card">
+        <div class="vision-card-dot"></div>
+        <h3 class="vision-card-title">기술 혁신</h3>
+        <p class="vision-card-text">
+          새로운 기술을 통해 더 나은 솔루션을 제공합니다.
+        </p>
+      </div>
+
+      <div class="vision-card">
+        <div class="vision-card-dot"></div>
+        <h3 class="vision-card-title">전문성</h3>
+        <p class="vision-card-text">
+          각 분야의 깊이 있는 경험과 지식으로 맞춤형 서비스를 제공합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
